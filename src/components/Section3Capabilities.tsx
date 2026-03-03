@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Application } from '@splinetool/runtime';
 import { BrainCircuit, Database, Layers, Code2 } from 'lucide-react';
 import { GlowingEffect } from './ui/glowing-effect';
+import { Link } from 'react-router-dom';
 
 const capabilities = [
   {
@@ -68,9 +69,9 @@ export function Section3Capabilities() {
               </h2>
 
               <div className="mt-auto pt-12 pointer-events-auto">
-                <button className="px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-colors">
+                <Link to="/work" className="inline-block px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-colors">
                   View our work
-                </button>
+                </Link>
               </div>
             </div>
           </motion.div>

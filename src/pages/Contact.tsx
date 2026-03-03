@@ -322,7 +322,7 @@ export function Contact() {
                             <ul className="flex flex-col gap-3">
                                 <li className="flex items-center gap-4 border-b border-white/5 pb-3">
                                     <span className="text-xs font-mono uppercase tracking-widest text-gray-500 w-24">Email</span>
-                                    <a href="mailto:hello@innoshay.com" className="text-white hover:text-[#00f0ff] transition-colors">hello@innoshay.com</a>
+                                    <a href="mailto:luckyjournals@gmail.com" className="text-white hover:text-[#00f0ff] transition-colors">luckyjournals@gmail.com</a>
                                 </li>
                                 <li className="flex items-center gap-4 border-b border-white/5 pb-3">
                                     <span className="text-xs font-mono uppercase tracking-widest text-gray-500 w-24">Location</span>

@@ -3,6 +3,7 @@ import { Application } from '@splinetool/runtime';
 import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
 import { GlowingEffect } from './ui/glowing-effect';
+import { Link } from 'react-router-dom';
 
 export function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -75,20 +76,20 @@ export function Hero() {
               {/* Contact Us Button with Glowing Effect */}
               <div className="relative rounded-full p-[1.5px] group">
                 <GlowingEffect blur={0} borderWidth={1.5} spread={30} glow={true} disabled={false} inactiveZone={0.01} proximity={64} />
-                <button className="relative z-10 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-black/80 backdrop-blur-xl text-white/90 text-[14px] font-medium hover:bg-black transition-colors border border-white/5">
+                <Link to="/contact" className="relative z-10 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-black/80 backdrop-blur-xl text-white/90 text-[14px] font-medium hover:bg-black transition-colors border border-white/5 inline-block">
                   Contact Us
-                </button>
+                </Link>
               </div>
 
               {/* Get Started Button with Glowing Effect */}
               <div className="relative rounded-full p-[1.5px] group">
                 <GlowingEffect blur={0} borderWidth={1.5} spread={30} glow={true} disabled={false} inactiveZone={0.01} proximity={64} />
-                <button className="relative z-10 pl-6 sm:pl-7 pr-2 py-2 rounded-full bg-black/80 backdrop-blur-xl text-white/90 text-[14px] font-medium hover:bg-black transition-colors flex items-center gap-4 border border-white/5">
+                <Link to="/contact" className="relative z-10 pl-6 sm:pl-7 pr-2 py-2 rounded-full bg-black/80 backdrop-blur-xl text-white/90 text-[14px] font-medium hover:bg-black transition-colors flex items-center gap-4 border border-white/5">
                   <span className="mb-0.5">Get Started</span>
                   <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#00A3FF] text-black flex items-center justify-center group-hover:bg-[#33B5FF] group-hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(0,163,255,0.4)]">
                     <Plus className="w-5 h-5" strokeWidth={2.5} />
                   </div>
-                </button>
+                </Link>
               </div>
             </motion.div>
           </div>

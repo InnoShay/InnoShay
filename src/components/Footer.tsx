@@ -1,5 +1,6 @@
 import React from 'react';
-import { Twitter, Linkedin, Github } from 'lucide-react';
+import { Instagram, Linkedin, Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
@@ -15,13 +16,13 @@ export function Footer() {
               We build the intelligent, scalable systems that serious organizations run on.
             </p>
             <div className="flex items-center gap-4 mt-2">
-              <a href="#" className="text-text-muted hover:text-text-primary transition-colors duration-180">
-                <Twitter className="w-[18px] h-[18px]" strokeWidth={1.5} />
+              <a href="https://www.instagram.com/innoshaysolutions/" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-text-primary transition-colors duration-180">
+                <Instagram className="w-[18px] h-[18px]" strokeWidth={1.5} />
               </a>
-              <a href="#" className="text-text-muted hover:text-text-primary transition-colors duration-180">
+              <a href="https://www.linkedin.com/in/innoshay/" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-text-primary transition-colors duration-180">
                 <Linkedin className="w-[18px] h-[18px]" strokeWidth={1.5} />
               </a>
-              <a href="#" className="text-text-muted hover:text-text-primary transition-colors duration-180">
+              <a href="https://github.com/InnoShay" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-text-primary transition-colors duration-180">
                 <Github className="w-[18px] h-[18px]" strokeWidth={1.5} />
               </a>
             </div>
@@ -30,28 +31,28 @@ export function Footer() {
           {/* Column 2: Capabilities */}
           <div className="flex flex-col gap-4">
             <h4 className="text-[14px] font-medium text-text-primary mb-2">Capabilities</h4>
-            <a href="#" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">AI Systems & Automation</a>
-            <a href="#" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Data Intelligence</a>
-            <a href="#" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">SaaS Architecture</a>
-            <a href="#" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Software Engineering</a>
-            <a href="#" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Advanced UI & 3D Interfaces</a>
+            <Link to="/capabilities" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">AI Systems & Automation</Link>
+            <Link to="/capabilities" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Data Intelligence</Link>
+            <Link to="/capabilities" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">SaaS Architecture</Link>
+            <Link to="/capabilities" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Software Engineering</Link>
+            <Link to="/capabilities" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Advanced UI & 3D Interfaces</Link>
           </div>
 
           {/* Column 3: Company */}
           <div className="flex flex-col gap-4">
             <h4 className="text-[14px] font-medium text-text-primary mb-2">Company</h4>
-            <a href="#" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">About</a>
-            <a href="#approach" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Approach</a>
-            <a href="#" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Careers</a>
-            <a href="#" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Contact</a>
+            <Link to="/company" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">About</Link>
+            <Link to="/approach" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Approach</Link>
+            <Link to="/work" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Careers</Link>
+            <Link to="/contact" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">Contact</Link>
           </div>
 
           {/* Column 4: Contact */}
           <div className="flex flex-col gap-4">
             <h4 className="text-[14px] font-medium text-text-primary mb-2">Contact</h4>
-            <a href="mailto:hello@innoshay.com" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">hello@innoshay.com</a>
-            <a href="#" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">LinkedIn</a>
-            <div className="text-[14px] text-text-muted mt-2">San Francisco, CA</div>
+            <a href="mailto:luckyjournals@gmail.com" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">luckyjournals@gmail.com</a>
+            <a href="https://www.linkedin.com/in/innoshay/" target="_blank" rel="noopener noreferrer" className="text-[14px] text-text-muted hover:text-text-secondary transition-colors duration-180">LinkedIn</a>
+            <div className="text-[14px] text-text-muted mt-2">Delhi, IND</div>
           </div>
         </div>
 
@@ -60,9 +61,9 @@ export function Footer() {
           <div className="text-[12px] text-text-disabled">
             Copyright © 2025 Innoshay Solutions. All rights reserved.
           </div>
-          <a href="#" className="text-[12px] text-text-disabled hover:text-text-muted transition-colors duration-180">
+          <Link to="/privacy-policy" className="text-[12px] px-4 py-2 rounded-full border border-white/5 bg-white/5 text-text-disabled hover:text-text-white hover:bg-white/10 transition-colors duration-180">
             Privacy Policy
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

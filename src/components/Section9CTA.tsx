@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, ArrowDown } from 'lucide-react';
 import { Application } from '@splinetool/runtime';
+import { Link } from 'react-router-dom';
 
 export function Section9CTA() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -49,18 +50,18 @@ export function Section9CTA() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="flex flex-col sm:flex-row items-start sm:items-center gap-8 relative z-30"
           >
-            <button className="group flex items-center gap-3 px-8 py-4 bg-bg-elevated/80 backdrop-blur-md border border-accent-blue/40 rounded-xl hover:border-accent-blue/80 hover:bg-bg-elevated transition-all duration-180 cursor-pointer">
+            <Link to="/contact" className="group flex items-center gap-3 px-8 py-4 bg-bg-elevated/80 backdrop-blur-md border border-accent-blue/40 rounded-xl hover:border-accent-blue/80 hover:bg-bg-elevated transition-all duration-180 cursor-pointer">
               <span className="text-[16px] font-medium text-text-primary">Begin a Conversation</span>
               <ArrowRight className="w-5 h-5 text-text-primary group-hover:translate-x-1 transition-transform duration-180" />
-            </button>
+            </Link>
 
-            <a
-              href="#capabilities"
+            <Link
+              to="/capabilities"
               className="group flex items-center gap-2 text-[14px] text-text-muted hover:text-text-primary transition-colors duration-180"
             >
               <span>View our capabilities</span>
-              <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-180" />
-            </a>
+              <ArrowDown className="w-4 h-4 text-text-muted group-hover:translate-y-1 transition-transform duration-180" />
+            </Link>
           </motion.div>
         </div>
       </div>

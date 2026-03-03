@@ -24,15 +24,15 @@ export function Preloader({ onBootComplete }: PreloaderProps) {
         let progressInterval: number;
         let currentProgress = 0;
 
-        // We want the counter to crawl up to ~80% artificially, then snap to 100% when Spline actually finishes
+        // We want the counter to crawl up to ~85% artificially, then snap to 100% when Spline actually finishes
         progressInterval = window.setInterval(() => {
             if (currentProgress < 85 && !splineLoaded) {
-                // Slow down as it gets higher
-                const increment = currentProgress > 60 ? 1 : 2;
+                // Slower, more cinematic crawl
+                const increment = currentProgress > 50 ? 1 : currentProgress > 30 ? 1 : 2;
                 currentProgress += increment;
                 setLoadingProgress(currentProgress);
             }
-        }, 60);
+        }, 100); // Slower tick for a more dramatic feel
 
         // The provided Spline URL with cache-busting
         const splineUrl = `https://prod.spline.design/0Z4lHQ0ZUBSKSWLa/scene.splinecode?t=${Date.now()}`;
@@ -42,9 +42,9 @@ export function Preloader({ onBootComplete }: PreloaderProps) {
             setSplineLoaded(true);
             clearInterval(progressInterval);
 
-            // Fast forward the remaining progress natively
+            // Fast forward the remaining progress natively (slightly slower snap)
             let finalizeInterval = window.setInterval(() => {
-                currentProgress += 3;
+                currentProgress += 2;
                 if (currentProgress >= 100) {
                     currentProgress = 100;
                     setLoadingProgress(100);
@@ -60,7 +60,7 @@ export function Preloader({ onBootComplete }: PreloaderProps) {
                 } else {
                     setLoadingProgress(currentProgress);
                 }
-            }, 16);
+            }, 25); // Slightly slower finalization
         });
 
         return () => {

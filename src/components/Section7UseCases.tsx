@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { GlowingEffect } from './ui/glowing-effect';
 
 const categories = ['All', 'AI', 'Data', 'SaaS', 'Automation'];
 
@@ -76,26 +77,32 @@ export function Section7UseCases() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 scale-100">
           {filteredCases.map((uc, index) => (
-            <motion.div
+            <motion.li
               key={uc.label}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
-              className="group p-6 rounded-xl border border-transparent hover:border-bg-border hover:bg-bg-elevated transition-all duration-200 cursor-default"
+              className="list-none min-h-[10rem]"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <div className={twMerge(clsx('w-2 h-2 rounded-full', uc.color))} />
-                <h4 className="text-[16px] md:text-[18px] font-medium text-text-primary">
-                  {uc.label}
-                </h4>
+              <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-white/10 p-2 md:rounded-[1.5rem] md:p-2.5 group hover:border-white/20 transition-colors">
+                <GlowingEffect blur={0} borderWidth={1.5} spread={40} glow={true} disabled={false} inactiveZone={0.01} proximity={64} />
+
+                <div className="relative flex h-full flex-col justify-center gap-3 overflow-hidden rounded-xl border-[0.75px] border-white/5 bg-bg-surface/90 backdrop-blur-md p-5 shadow-sm z-10 transition-all duration-300 group-hover:bg-bg-elevated/90">
+                  <div className="relative z-10 flex items-center gap-3">
+                    <div className={twMerge(clsx('w-2 h-2 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.4)]', uc.color))} />
+                    <h4 className="text-[16px] md:text-[18px] font-medium text-text-primary mt-0.5">
+                      {uc.label}
+                    </h4>
+                  </div>
+                  <p className="relative z-10 text-[14px] md:text-[15px] text-text-secondary pl-5 leading-relaxed">
+                    {uc.desc}
+                  </p>
+                </div>
               </div>
-              <p className="text-[14px] md:text-[15px] text-text-secondary pl-5">
-                {uc.desc}
-              </p>
-            </motion.div>
+            </motion.li>
           ))}
         </div>
       </div>

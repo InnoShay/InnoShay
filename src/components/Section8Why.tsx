@@ -1,139 +1,104 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import React from 'react';
+import { motion } from 'motion/react';
+import { Shield, Lock, KeyRound, ServerCrash, FileCheck, ClipboardList, PackageCheck, Activity, ArrowRightLeft } from 'lucide-react';
+import { GlowingEffect } from './ui/glowing-effect';
 
-const differentiators = [
+const securityFeatures = [
   {
-    numeral: '01',
-    title: 'Engineering-Led Culture',
-    body: 'Design here is a function of systems thinking, not decoration',
+    icon: Shield,
+    title: 'Security-First Design',
+    body: 'Architecture that assumes adversarial conditions from the first line',
   },
   {
-    numeral: '02',
-    title: 'Long-Term Partnership Model',
-    body: 'We measure success by what our systems do in year three, not week one',
+    icon: Lock,
+    title: 'Data Privacy',
+    body: 'Your data is yours. We build systems that enforce that structurally.',
   },
   {
-    numeral: '03',
-    title: 'Unified Design + Technology',
-    body: 'The same team that architects your system designs the interface that runs it',
+    icon: KeyRound,
+    title: 'Access Control',
+    body: 'Role-based, auditable, and minimal-privilege by default',
   },
   {
-    numeral: '04',
-    title: 'Future-Proof by Intention',
-    body: "Scalability is not a roadmap item. It's a constraint we design against from the start.",
+    icon: ServerCrash,
+    title: 'Resilience at Scale',
+    body: 'Systems designed to degrade gracefully, not fail catastrophically',
   },
+  {
+    icon: FileCheck,
+    title: 'Compliance Awareness',
+    body: 'SOC 2, GDPR, ISO 27001 — aware, not indifferent',
+  },
+  {
+    icon: ClipboardList,
+    title: 'Audit Trails',
+    body: 'Every significant action logged, traceable, and exportable',
+  },
+  {
+    icon: PackageCheck,
+    title: 'Dependency Management',
+    body: 'Third-party risk assessed and documented in every engagement',
+  },
+  {
+    icon: Activity,
+    title: 'Incident Response',
+    body: 'Clear protocols defined before deployment, not after incidents',
+  },
+  {
+    icon: ArrowRightLeft,
+    title: 'Transparent Handoffs',
+    body: 'You own the system. We ensure you can actually run it.',
+  }
 ];
 
 export function Section8Why() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Track progress over a tall container
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
-
-  // Neon line grows top to bottom
-  const lineHeight = useTransform(scrollYProgress, [0.05, 0.9], ['0%', '100%']);
-
-  // Principle 1 mapping (0.05 -> 0.25)
-  const p1Opacity = useTransform(scrollYProgress, [0.05, 0.15], [0.3, 1]);
-  const p1IndicatorScale = useTransform(scrollYProgress, [0.05, 0.15], [0.5, 1]);
-  const p1IndicatorColor = useTransform(scrollYProgress, [0.05, 0.15], ['rgba(255,255,255,0.1)', 'rgba(47,126,234,1)']);
-  const p1Glow = useTransform(scrollYProgress, [0.05, 0.15], ['0px 0px 0px rgba(47,126,234,0)', '0px 0px 12px rgba(47,126,234,0.6)']);
-
-  // Principle 2 mapping (0.3 -> 0.5)
-  const p2Opacity = useTransform(scrollYProgress, [0.3, 0.4], [0.3, 1]);
-  const p2IndicatorScale = useTransform(scrollYProgress, [0.3, 0.4], [0.5, 1]);
-  const p2IndicatorColor = useTransform(scrollYProgress, [0.3, 0.4], ['rgba(255,255,255,0.1)', 'rgba(88,96,239,1)']);
-  const p2Glow = useTransform(scrollYProgress, [0.3, 0.4], ['0px 0px 0px rgba(88,96,239,0)', '0px 0px 12px rgba(88,96,239,0.6)']);
-
-  // Principle 3 mapping (0.55 -> 0.75)
-  const p3Opacity = useTransform(scrollYProgress, [0.55, 0.65], [0.3, 1]);
-  const p3IndicatorScale = useTransform(scrollYProgress, [0.55, 0.65], [0.5, 1]);
-  const p3IndicatorColor = useTransform(scrollYProgress, [0.55, 0.65], ['rgba(255,255,255,0.1)', 'rgba(123,63,228,1)']);
-  const p3Glow = useTransform(scrollYProgress, [0.55, 0.65], ['0px 0px 0px rgba(123,63,228,0)', '0px 0px 12px rgba(123,63,228,0.6)']);
-
-  // Principle 4 mapping (0.8 -> 1.0)
-  const p4Opacity = useTransform(scrollYProgress, [0.8, 0.9], [0.3, 1]);
-  const p4IndicatorScale = useTransform(scrollYProgress, [0.8, 0.9], [0.5, 1]);
-  const p4IndicatorColor = useTransform(scrollYProgress, [0.8, 0.9], ['rgba(255,255,255,0.1)', 'rgba(123,63,228,1)']);
-  const p4Glow = useTransform(scrollYProgress, [0.8, 0.9], ['0px 0px 0px rgba(123,63,228,0)', '0px 0px 12px rgba(123,63,228,0.6)']);
-
-  const points = [
-    { op: p1Opacity, scale: p1IndicatorScale, color: p1IndicatorColor, glow: p1Glow },
-    { op: p2Opacity, scale: p2IndicatorScale, color: p2IndicatorColor, glow: p2Glow },
-    { op: p3Opacity, scale: p3IndicatorScale, color: p3IndicatorColor, glow: p3Glow },
-    { op: p4Opacity, scale: p4IndicatorScale, color: p4IndicatorColor, glow: p4Glow },
-  ];
-
   return (
-    <section
-      id="approach"
-      ref={containerRef}
-      // Expand height to create scroll space
-      className="w-full h-[300vh] bg-[#050505] relative"
-    >
-      <div className="sticky top-0 w-full h-screen overflow-hidden py-16 md:py-24 flex items-center">
-        <div className="max-w-7xl mx-auto px-6 w-full h-full flex items-center">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative w-full h-full lg:h-auto items-center lg:items-start">
+    <section id="approach" className="w-full py-[160px] md:py-[240px] bg-bg-void relative border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
 
-            {/* Left Column - Quote (Sticky in view) */}
-            <div className="w-full lg:w-[45%] flex items-start flex-shrink-0 z-10 transition-transform duration-500 pt-8 lg:pt-0">
-              <h2 className="text-[36px] md:text-[52px] lg:text-[72px] font-light tracking-[-0.03em] text-white opacity-90 leading-[1.05]">
-                "The systems we build are invisible when they're working. That's intentional."
-              </h2>
-            </div>
+        <div className="mb-20">
+          <h2 className="text-[32px] md:text-[56px] font-medium tracking-tight text-white mb-4">
+            Security, Trust & Reliability
+          </h2>
+        </div>
 
-            {/* Right Column - Principles Sequence */}
-            <div className="w-full lg:w-[55%] flex flex-col relative pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {securityFeatures.map((feature, i) => (
+            <motion.li
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              className="list-none min-h-[14rem]"
+            >
+              <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-white/10 p-2 md:rounded-[1.5rem] md:p-3 group">
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
+                <div className="relative flex h-full flex-col justify-start gap-4 overflow-hidden rounded-xl border-[0.75px] border-white/5 bg-bg-base/90 backdrop-blur-md p-6 shadow-sm md:p-6 z-10 transition-colors group-hover:bg-bg-elevated/90">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center mb-2">
+                    <feature.icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                  </div>
 
-              {/* The Neon Progression System */}
-              <div className="absolute left-[-24px] md:left-0 top-2 bottom-2 w-[2px] bg-white/5 rounded-full overflow-hidden">
-                <motion.div
-                  className="w-full origin-top relative"
-                  style={{ height: lineHeight }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-b from-[#2F7EEA] to-[#7B3FE4] shadow-[0_0_15px_rgba(47,126,234,0.6)]" />
-                </motion.div>
+                  <div>
+                    <h3 className="text-[20px] font-medium text-white mb-2">
+                      {feature.title}
+                    </h3>
+
+                    <p className="text-[15px] text-gray-400 leading-[1.6]">
+                      {feature.body}
+                    </p>
+                  </div>
+                </div>
               </div>
-
-              {/* The 4 Principles List */}
-              <div className="flex flex-col gap-12 md:gap-16 pl-6 md:pl-16 relative">
-                {differentiators.map((diff, index) => {
-                  const anim = points[index];
-                  return (
-                    <motion.div
-                      key={diff.numeral}
-                      style={{ opacity: anim.op }}
-                      className="flex flex-col relative pt-1"
-                    >
-                      {/* Connection Node */}
-                      <motion.div
-                        className="absolute left-[-31px] md:left-[-69px] top-[7px] w-2.5 h-2.5 rounded-full border border-black z-10"
-                        style={{
-                          backgroundColor: anim.color,
-                          scale: anim.scale,
-                          boxShadow: anim.glow
-                        }}
-                      />
-
-                      <div className="text-[12px] md:text-[13px] font-mono text-gray-500 mb-2 md:mb-3">
-                        {diff.numeral}
-                      </div>
-                      <h3 className="text-[20px] md:text-[24px] lg:text-[28px] font-medium tracking-[-0.01em] text-white mb-2 md:mb-3 transition-colors">
-                        {diff.title}
-                      </h3>
-                      <p className="text-[15px] md:text-[16px] text-gray-400 leading-[1.65] max-w-[42ch]">
-                        {diff.body}
-                      </p>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-          </div>
+            </motion.li>
+          ))}
         </div>
       </div>
     </section>

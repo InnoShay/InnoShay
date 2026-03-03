@@ -6,15 +6,16 @@ import { GlowingEffect } from './ui/glowing-effect';
 
 const securityFeatures = [
   {
-    icon: Shield,
-    title: 'Security-First Design',
-    body: 'Architecture that assumes adversarial conditions from the first line.',
-    className: 'lg:col-span-2',
-  },
-  {
     icon: Lock,
     title: 'Data Privacy',
     body: 'Your data is yours. We build systems that enforce that structurally.',
+    className: 'lg:col-span-1 lg:row-span-2 min-h-[22rem]',
+    image: '/feature-security.png',
+  },
+  {
+    icon: Shield,
+    title: 'Security-First Design',
+    body: 'Architecture that assumes adversarial conditions from the first line.',
     className: 'lg:col-span-1',
   },
   {
@@ -28,12 +29,7 @@ const securityFeatures = [
     title: 'Resilience at Scale',
     body: 'Systems designed to degrade gracefully, not fail catastrophically.',
     className: 'lg:col-span-2',
-  },
-  {
-    icon: FileCheck,
-    title: 'Compliance Awareness',
-    body: 'SOC 2, GDPR, ISO 27001 — aware, not indifferent.',
-    className: 'lg:col-span-2',
+    image: '/feature-servers.png',
   },
   {
     icon: ClipboardList,
@@ -46,12 +42,6 @@ const securityFeatures = [
     title: 'Dependency Management',
     body: 'Third-party risk assessed and documented in every engagement.',
     className: 'lg:col-span-1',
-  },
-  {
-    icon: Activity,
-    title: 'Incident Response',
-    body: 'Clear protocols defined before deployment, not after incidents.',
-    className: 'lg:col-span-2',
   },
   {
     icon: ArrowRightLeft,
@@ -72,7 +62,7 @@ export function Section8Why() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:grid-flow-row-dense">
           {securityFeatures.map((feature, i) => (
             <motion.li
               key={i}
@@ -82,26 +72,34 @@ export function Section8Why() {
               transition={{ delay: i * 0.05 }}
               className={twMerge("list-none h-full", feature.className)}
             >
-              <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-white/10 p-2 md:rounded-[1.5rem] md:p-3 group">
+              <div className="relative h-full rounded-2xl border-[1px] border-white/5 bg-[#0a0a0a] group hover:border-white/10 transition-colors">
                 <GlowingEffect
                   spread={40}
                   glow={true}
                   disabled={false}
                   proximity={64}
                   inactiveZone={0.01}
-                  borderWidth={3}
+                  borderWidth={1.5}
                 />
-                <div className="relative flex h-full flex-col justify-start gap-4 overflow-hidden rounded-xl border-[0.75px] border-white/5 bg-bg-base/90 backdrop-blur-md p-6 shadow-sm md:p-6 z-10 transition-colors group-hover:bg-bg-elevated/90">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center mb-2">
-                    <feature.icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                <div className="relative flex h-full flex-col justify-start rounded-2xl border-[0.5px] border-white/5 bg-[#0f0f11] p-6 md:p-7 shadow-sm z-10 overflow-hidden">
+
+                  {/* Optional Image Background */}
+                  {feature.image && (
+                    <div className="absolute inset-0 z-0 opacity-60">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f11] via-[#0f0f11]/80 to-transparent z-10" />
+                      <img src={feature.image} alt={feature.title} className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out" />
+                    </div>
+                  )}
+
+                  <div className="relative z-10 w-9 h-9 rounded-lg bg-white/[0.04] border border-white/5 flex items-center justify-center mb-6 shadow-sm">
+                    <feature.icon className="w-[18px] h-[18px] text-gray-400 group-hover:text-white transition-colors" />
                   </div>
 
-                  <div>
-                    <h3 className="text-[20px] font-medium text-white mb-2">
+                  <div className={twMerge("relative z-10 flex flex-col", feature.image ? "mt-auto pt-6" : "")}>
+                    <h3 className="text-[16px] md:text-[17px] font-medium text-white/90 mb-1.5 leading-snug">
                       {feature.title}
                     </h3>
-
-                    <p className="text-[15px] text-gray-400 leading-[1.6]">
+                    <p className="text-[13px] md:text-[14px] text-gray-400/80 leading-relaxed font-normal">
                       {feature.body}
                     </p>
                   </div>

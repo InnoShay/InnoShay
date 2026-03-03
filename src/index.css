@@ -20,13 +20,7 @@
   --color-text-muted: #5A5B63;
   --color-text-disabled: #32333A;
 
-  --spacing-xs: 8px;
-  --spacing-sm: 16px;
-  --spacing-md: 32px;
-  --spacing-lg: 64px;
-  --spacing-xl: 96px;
-  --spacing-2xl: 160px;
-  --spacing-3xl: 240px;
+
 }
 
 body {
@@ -67,9 +61,11 @@ body {
 .shadow-surface {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
+
 .shadow-elevated {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
+
 .shadow-floating {
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
@@ -86,9 +82,11 @@ body {
 .syntax-keyword {
   color: var(--color-accent-blue);
 }
+
 .syntax-string {
   color: var(--color-accent-violet);
 }
+
 .syntax-comment {
   color: var(--color-text-muted);
 }
@@ -97,24 +95,34 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-bg-void);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--color-bg-surface);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-bg-elevated);
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
+
 .animate-marquee {
   animation: marquee 30s linear infinite;
 }
+
 .animate-marquee-slow {
   animation: marquee 120s linear infinite;
 }

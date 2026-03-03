@@ -13,13 +13,15 @@ import { Home } from './pages/Home';
 // Placeholder Pages (To be built iteratively)
 // Keeping them inline temporarily to satisfy compilation before we build out the full pages
 import { PageTransition } from './components/PageTransition';
-const PlaceholderPage = ({ title }: { title: string }) => (
-  <PageTransition>
-    <div className="min-h-screen flex items-center justify-center pt-20">
-      <h1 className="text-4xl font-mono text-[#00f0ff]">{title}</h1>
-    </div>
-  </PageTransition>
-);
+import { Capabilities } from './pages/Capabilities';
+import { Approach } from './pages/Approach';
+import { Work } from './pages/Work';
+import { CaseStudy } from './pages/CaseStudy';
+import { Company } from './pages/Company';
+import { Contact } from './pages/Contact';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { Terms } from './pages/Terms';
+import { NotFound } from './pages/NotFound';
 
 // Inner App component to access useLocation hook which requires Router context
 function AnimatedRoutes() {
@@ -31,14 +33,17 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="capabilities" element={<PlaceholderPage title="CAPABILITIES_SYS" />} />
-          <Route path="approach" element={<PlaceholderPage title="APPROACH_SYS" />} />
-          <Route path="work" element={<PlaceholderPage title="WORK_SYS" />} />
-          <Route path="company" element={<PlaceholderPage title="COMPANY_SYS" />} />
-          <Route path="contact" element={<PlaceholderPage title="CONTACT_SYS" />} />
-          <Route path="privacy-policy" element={<PlaceholderPage title="PRIVACY_SYS" />} />
-          <Route path="terms" element={<PlaceholderPage title="TERMS_SYS" />} />
-          <Route path="*" element={<PlaceholderPage title="ERROR_404_NOT_FOUND" />} />
+          <Route path="capabilities" element={<Capabilities />} />
+          <Route path="approach" element={<Approach />} />
+          <Route path="work">
+            <Route index element={<Work />} />
+            <Route path=":slug" element={<CaseStudy />} />
+          </Route>
+          <Route path="company" element={<Company />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms" element={<Terms />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </AnimatePresence>

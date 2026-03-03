@@ -7,16 +7,16 @@ import { GlowingEffect } from './ui/glowing-effect';
 const categories = ['All', 'AI', 'Data', 'SaaS', 'Automation'];
 
 const useCases = [
-  { label: 'Enterprise AI Deployment', desc: 'Secure, scalable model hosting', category: 'AI', color: 'bg-accent-blue' },
-  { label: 'SaaS Platform Architecture', desc: 'Multi-tenant, high-availability systems', category: 'SaaS', color: 'bg-accent-violet' },
-  { label: 'Real-Time Data Pipelines', desc: 'Low-latency streaming and processing', category: 'Data', color: 'bg-accent-cyan' },
-  { label: 'Internal Intelligence Systems', desc: 'Knowledge graphs and semantic search', category: 'AI', color: 'bg-accent-blue' },
-  { label: 'Process Automation at Scale', desc: 'Orchestrated workflows across systems', category: 'Automation', color: 'bg-accent-violet' },
-  { label: 'ML Model Infrastructure', desc: 'Training and inference pipelines', category: 'AI', color: 'bg-accent-blue' },
-  { label: 'Customer-Facing Analytics', desc: 'Embedded dashboards and reporting', category: 'Data', color: 'bg-accent-cyan' },
-  { label: 'Regulatory Reporting Systems', desc: 'Compliant, auditable data trails', category: 'Data', color: 'bg-accent-cyan' },
-  { label: 'Digital Transformation Programs', desc: 'Legacy system modernization', category: 'Automation', color: 'bg-accent-violet' },
-  { label: 'R&D Technology Platforms', desc: 'Experimental architecture for innovation', category: 'SaaS', color: 'bg-accent-blue' },
+  { label: 'Enterprise AI Deployment', desc: 'Secure, scalable model hosting', category: 'AI', color: 'bg-accent-blue', className: 'lg:col-span-2' },
+  { label: 'SaaS Platform Architecture', desc: 'Multi-tenant, high-availability systems', category: 'SaaS', color: 'bg-accent-violet', className: 'lg:col-span-1' },
+  { label: 'Real-Time Data Pipelines', desc: 'Low-latency streaming and processing', category: 'Data', color: 'bg-accent-cyan', className: 'lg:col-span-1' },
+  { label: 'Internal Intelligence Systems', desc: 'Knowledge graphs and semantic search', category: 'AI', color: 'bg-accent-blue', className: 'lg:col-span-2' },
+  { label: 'Process Automation at Scale', desc: 'Orchestrated workflows across systems', category: 'Automation', color: 'bg-accent-violet', className: 'lg:col-span-1' },
+  { label: 'ML Model Infrastructure', desc: 'Training and inference pipelines', category: 'AI', color: 'bg-accent-blue', className: 'lg:col-span-2' },
+  { label: 'Customer-Facing Analytics', desc: 'Embedded dashboards and reporting', category: 'Data', color: 'bg-accent-cyan', className: 'lg:col-span-2' },
+  { label: 'Regulatory Reporting Systems', desc: 'Compliant, auditable data trails', category: 'Data', color: 'bg-accent-cyan', className: 'lg:col-span-1' },
+  { label: 'Digital Transformation Programs', desc: 'Legacy system modernization', category: 'Automation', color: 'bg-accent-violet', className: 'lg:col-span-2' },
+  { label: 'R&D Technology Platforms', desc: 'Experimental architecture for innovation', category: 'SaaS', color: 'bg-accent-blue', className: 'lg:col-span-1' },
 ];
 
 export function Section7UseCases() {
@@ -85,7 +85,7 @@ export function Section7UseCases() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
-              className="list-none min-h-[10rem]"
+              className={twMerge("list-none h-full", uc.className)}
             >
               <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-white/10 p-2 md:rounded-[1.5rem] md:p-2.5 group hover:border-white/20 transition-colors">
                 <GlowingEffect blur={0} borderWidth={1.5} spread={40} glow={true} disabled={false} inactiveZone={0.01} proximity={64} />

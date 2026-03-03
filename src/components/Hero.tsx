@@ -10,8 +10,8 @@ export function Hero() {
   useEffect(() => {
     if (canvasRef.current) {
       const app = new Application(canvasRef.current);
-      // Appending ?v=2 to bypass Spline's aggressive edge caching
-      app.load('https://prod.spline.design/b2TkwV9r1cxKpbgP/scene.splinecode?v=2');
+      // Aggressively bypassing Spline's edge caching
+      app.load(`https://prod.spline.design/b2TkwV9r1cxKpbgP/scene.splinecode?t=${Date.now()}`);
     }
   }, []);
 

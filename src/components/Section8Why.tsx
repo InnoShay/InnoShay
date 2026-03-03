@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { twMerge } from 'tailwind-merge';
 import { Shield, Lock, KeyRound, ServerCrash, FileCheck, ClipboardList, PackageCheck, Activity, ArrowRightLeft } from 'lucide-react';
 import { GlowingEffect } from './ui/glowing-effect';
 
@@ -7,47 +8,56 @@ const securityFeatures = [
   {
     icon: Shield,
     title: 'Security-First Design',
-    body: 'Architecture that assumes adversarial conditions from the first line',
+    body: 'Architecture that assumes adversarial conditions from the first line.',
+    className: 'lg:col-span-2',
   },
   {
     icon: Lock,
     title: 'Data Privacy',
     body: 'Your data is yours. We build systems that enforce that structurally.',
+    className: 'lg:col-span-1',
   },
   {
     icon: KeyRound,
     title: 'Access Control',
-    body: 'Role-based, auditable, and minimal-privilege by default',
+    body: 'Role-based, auditable, and minimal-privilege by default.',
+    className: 'lg:col-span-1',
   },
   {
     icon: ServerCrash,
     title: 'Resilience at Scale',
-    body: 'Systems designed to degrade gracefully, not fail catastrophically',
+    body: 'Systems designed to degrade gracefully, not fail catastrophically.',
+    className: 'lg:col-span-2',
   },
   {
     icon: FileCheck,
     title: 'Compliance Awareness',
-    body: 'SOC 2, GDPR, ISO 27001 — aware, not indifferent',
+    body: 'SOC 2, GDPR, ISO 27001 — aware, not indifferent.',
+    className: 'lg:col-span-2',
   },
   {
     icon: ClipboardList,
     title: 'Audit Trails',
-    body: 'Every significant action logged, traceable, and exportable',
+    body: 'Every significant action logged, traceable, and exportable.',
+    className: 'lg:col-span-1',
   },
   {
     icon: PackageCheck,
     title: 'Dependency Management',
-    body: 'Third-party risk assessed and documented in every engagement',
+    body: 'Third-party risk assessed and documented in every engagement.',
+    className: 'lg:col-span-1',
   },
   {
     icon: Activity,
     title: 'Incident Response',
-    body: 'Clear protocols defined before deployment, not after incidents',
+    body: 'Clear protocols defined before deployment, not after incidents.',
+    className: 'lg:col-span-2',
   },
   {
     icon: ArrowRightLeft,
     title: 'Transparent Handoffs',
     body: 'You own the system. We ensure you can actually run it.',
+    className: 'lg:col-span-1',
   }
 ];
 
@@ -70,7 +80,7 @@ export function Section8Why() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="list-none min-h-[14rem]"
+              className={twMerge("list-none h-full", feature.className)}
             >
               <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-white/10 p-2 md:rounded-[1.5rem] md:p-3 group">
                 <GlowingEffect

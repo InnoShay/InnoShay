@@ -9,7 +9,6 @@ import { Hero } from './components/Hero';
 import { Section1Transition } from './components/Section1Transition';
 import { Section2Philosophy } from './components/Section2Philosophy';
 import { Section3Capabilities } from './components/Section3Capabilities';
-import { Section4Technology } from './components/Section4Technology';
 import { Section5Developer } from './components/Section5Developer';
 import { Section6Security } from './components/Section6Security';
 import { Section7UseCases } from './components/Section7UseCases';
@@ -26,7 +25,6 @@ export default function App() {
         <Section1Transition />
         <Section2Philosophy />
         <Section3Capabilities />
-        <Section4Technology />
         <Section5Developer />
         <Section6Security />
         <Section7UseCases />

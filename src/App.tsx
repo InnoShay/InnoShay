@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { motion, AnimatePresence } from 'framer-motion';
 import { Preloader } from './components/Preloader';
 import { Layout } from './components/Layout';
+import { Navigation } from './components/Navigation';
 import { Home } from './pages/Home';
 
 // Placeholder Pages (To be built iteratively)
@@ -61,6 +62,14 @@ export default function App() {
       */}
       {!bootComplete && <Preloader onBootComplete={() => setBootComplete(true)} />}
 
+      {/*
+        CRITICAL: Navigation lives OUTSIDE the filtered motion.div.
+        CSS filter (even blur(0px)) on ANY ancestor breaks position:fixed,
+        making the navbar scroll away. By rendering it here as a sibling,
+        it has no filtered ancestor and position:fixed works perfectly.
+      */}
+      {bootComplete && <Navigation />}
+
       <motion.div
         className="min-h-screen bg-bg-void text-text-primary selection:bg-accent-blue/30 selection:text-text-primary"
         initial={{ opacity: 0, filter: 'blur(20px)' }}
@@ -70,7 +79,6 @@ export default function App() {
         }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
         style={{
-          // Prevent interaction while the preloader is covering the screen
           pointerEvents: bootComplete ? 'auto' : 'none'
         }}
       >

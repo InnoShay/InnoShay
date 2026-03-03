@@ -1,0 +1,1 @@
+Finished attempting rewrite - no longer crashing loops

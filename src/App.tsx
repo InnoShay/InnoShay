@@ -4,24 +4,52 @@
  */
 
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Preloader } from './components/Preloader';
-import { Navigation } from './components/Navigation';
-import { Hero } from './components/Hero';
-import { Section1Transition } from './components/Section1Transition';
-import { Section2Philosophy } from './components/Section2Philosophy';
-import { Section3Capabilities } from './components/Section3Capabilities';
-import { Section5Developer } from './components/Section5Developer';
-import { Section7UseCases } from './components/Section7UseCases';
-import { Section8Why } from './components/Section8Why';
-import { Section9CTA } from './components/Section9CTA';
-import { Footer } from './components/Footer';
+import { Layout } from './components/Layout';
+import { Home } from './pages/Home';
+
+// Placeholder Pages (To be built iteratively)
+// Keeping them inline temporarily to satisfy compilation before we build out the full pages
+import { PageTransition } from './components/PageTransition';
+const PlaceholderPage = ({ title }: { title: string }) => (
+  <PageTransition>
+    <div className="min-h-screen flex items-center justify-center pt-20">
+      <h1 className="text-4xl font-mono text-[#00f0ff]">{title}</h1>
+    </div>
+  </PageTransition>
+);
+
+// Inner App component to access useLocation hook which requires Router context
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      {/* @ts-ignore - framer-motion requires key for AnimatePresence to detect route changes */}
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="capabilities" element={<PlaceholderPage title="CAPABILITIES_SYS" />} />
+          <Route path="approach" element={<PlaceholderPage title="APPROACH_SYS" />} />
+          <Route path="work" element={<PlaceholderPage title="WORK_SYS" />} />
+          <Route path="company" element={<PlaceholderPage title="COMPANY_SYS" />} />
+          <Route path="contact" element={<PlaceholderPage title="CONTACT_SYS" />} />
+          <Route path="privacy-policy" element={<PlaceholderPage title="PRIVACY_SYS" />} />
+          <Route path="terms" element={<PlaceholderPage title="TERMS_SYS" />} />
+          <Route path="*" element={<PlaceholderPage title="ERROR_404_NOT_FOUND" />} />
+        </Route>
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 export default function App() {
   const [bootComplete, setBootComplete] = useState(false);
 
   return (
-    <>
+    <Router>
       {/* 
         The Preloader mounts immediately and removes itself 
         once the Spline 3D Core hits 100% and triggers onBootComplete
@@ -41,20 +69,8 @@ export default function App() {
           pointerEvents: bootComplete ? 'auto' : 'none'
         }}
       >
-        <Navigation />
-        <main>
-          <Hero />
-          <Section1Transition />
-          <Section2Philosophy />
-          <Section3Capabilities />
-          <Section5Developer />
-          <Section7UseCases />
-          <Section8Why />
-          <Section9CTA />
-        </main>
-        <Footer />
+        <AnimatedRoutes />
       </motion.div>
-    </>
+    </Router>
   );
 }
-

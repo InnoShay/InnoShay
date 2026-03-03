@@ -1,9 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { GlowingEffect } from './ui/glowing-effect';
 
-const NAV_ITEMS = ['Capabilities', 'Approach', 'Work', 'Company'];
+const NAV_ITEMS = [
+  { name: 'Capabilities', path: '/capabilities' },
+  { name: 'Approach', path: '/approach' },
+  { name: 'Work', path: '/work' },
+  { name: 'Company', path: '/company' }
+];
 
 export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,11 +32,10 @@ export function Navigation() {
 
   // ----- Intelligent Slider State -----
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const location = useLocation();
 
-  // We determine which anchor should have the active highlight.
-  // We'll update activeIndex based via intersection observers or just hash changes
-  // For the slider, we fallback to activeIndex if not hovering.
+  // Find active index based on route, default to -1 if home
+  const activeIndex = NAV_ITEMS.findIndex(item => location.pathname === item.path);
   const targetIndex = hoveredIndex !== null ? hoveredIndex : activeIndex;
 
   return (
@@ -78,7 +83,7 @@ export function Navigation() {
             <div className="absolute -inset-[100%] z-0 rounded-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent animate-[spin_8s_linear_infinite] pointer-events-none opacity-50" />
 
             {/* LEFT: Brand morphing container */}
-            <div className="flex items-center gap-3 relative z-10 cursor-pointer group">
+            <Link to="/" className="flex items-center gap-3 relative z-10 cursor-pointer group">
               {/* Geometric Logo Icon (Visible regardless of scroll) */}
               <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#2F7EEA] to-[#7B3FE4] flex items-center justify-center shadow-[0_0_12px_rgba(47,126,234,0.4)] group-hover:scale-[1.03] transition-transform duration-300">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -98,7 +103,7 @@ export function Navigation() {
                   Innoshay Solutions
                 </span>
               </motion.div>
-            </div>
+            </Link>
 
             {/* CENTER: Navigation Links + Liquid Slider (Desktop) */}
             <div
@@ -106,13 +111,11 @@ export function Navigation() {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               {NAV_ITEMS.map((item, i) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                <NavLink
+                  key={item.path}
+                  to={item.path}
                   onMouseEnter={() => setHoveredIndex(i)}
-                  onClick={() => setActiveIndex(i)}
-                  className={`relative z-10 px-5 flex items-center justify-center transition-colors duration-300 h-10 rounded-full ${targetIndex === i ? 'text-white' : 'text-gray-400 hover:text-gray-200'
-                    }`}
+                  className={({ isActive }) => `relative z-10 px-5 flex items-center justify-center transition-colors duration-300 h-10 rounded-full ${isActive || targetIndex === i ? 'text-white' : 'text-gray-400 hover:text-gray-200'}`}
                 >
                   {/* Active Highlight Slider */}
                   {targetIndex === i && (
@@ -128,17 +131,17 @@ export function Navigation() {
                     />
                   )}
                   <span className="text-[14px] font-medium tracking-wide relative z-10">
-                    {item}
+                    {item.name}
                   </span>
-                </a>
+                </NavLink>
               ))}
             </div>
 
             {/* RIGHT: CTA Button (Desktop) */}
             <div className="hidden md:block relative z-10">
-              <button className="px-5 py-2.5 text-sm font-medium text-white bg-white/5 backdrop-blur-md border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.2)]">
+              <Link to="/contact" className="inline-block px-5 py-2.5 text-sm font-medium text-white bg-white/5 backdrop-blur-md border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.2)]">
                 Start a Project
-              </button>
+              </Link>
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -168,26 +171,34 @@ export function Navigation() {
 
             <div className="flex flex-col gap-4 relative z-10">
               {NAV_ITEMS.map((item, i) => (
-                <motion.a
-                  key={item}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 + 0.1, duration: 0.4 }}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-2xl font-medium tracking-tight text-white hover:text-[#2F7EEA] transition-colors py-2 border-b border-white/5"
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  className={({ isActive }) => `text-2xl font-medium tracking-tight hover:text-[#2F7EEA] transition-colors py-2 border-b border-white/5 ${isActive ? 'text-[#00f0ff]' : 'text-white'}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item}
-                </motion.a>
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 + 0.1, duration: 0.4 }}
+                  >
+                    {item.name}
+                  </motion.div>
+                </NavLink>
               ))}
-              <motion.button
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: NAV_ITEMS.length * 0.05 + 0.1, duration: 0.4 }}
-                className="mt-4 px-6 py-4 text-base font-medium text-white bg-white/10 border border-white/10 rounded-2xl hover:bg-white/15 transition-colors duration-200"
               >
-                Start a Project
-              </motion.button>
+                <Link
+                  to="/contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="mt-4 block text-center px-6 py-4 text-base font-medium text-white bg-white/10 border border-white/10 rounded-2xl hover:bg-white/15 transition-colors duration-200"
+                >
+                  Start a Project
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}

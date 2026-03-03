@@ -27,7 +27,7 @@ export function Section7UseCases() {
   );
 
   return (
-    <section className="w-full py-[160px] md:py-[240px] bg-bg-base relative">
+    <section className="w-full pt-[80px] pb-[160px] md:pt-[100px] md:pb-[240px] bg-bg-base relative border-t border-white/[0.03]">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Terminal, Code2, Network, Database, LayoutDashboard, X, Minus, Maximize2, Globe, Cpu, Wifi, BatteryFull, Search, SlidersHorizontal } from 'lucide-react';
+import { GlowingEffect } from './ui/glowing-effect';
 
 type AppId = 'code' | 'terminal' | 'architecture' | 'database' | 'dashboard';
 
@@ -175,7 +176,7 @@ export function Section5Developer() {
   };
 
   return (
-    <section className="w-full py-[120px] md:py-[200px] bg-bg-base relative overflow-hidden">
+    <section className="w-full pt-[120px] pb-[60px] md:pt-[200px] md:pb-[80px] bg-bg-base relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
 
         {/* Section Headings — OUTSIDE the macOS frame */}
@@ -190,125 +191,130 @@ export function Section5Developer() {
         </div>
 
         {/* macOS Desktop Frame with neon glow */}
-        <div className="relative w-full max-w-[1100px]">
+        <div className="relative w-full max-w-[1100px] z-10 group">
           {/* Neon glow layers behind the frame */}
           <div className="absolute -inset-4 rounded-3xl opacity-60 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(236,72,153,0.25), transparent 60%), radial-gradient(ellipse at 70% 40%, rgba(59,130,246,0.25), transparent 60%), radial-gradient(ellipse at 50% 80%, rgba(168,85,247,0.2), transparent 50%)" }} />
           <div className="absolute -inset-1 rounded-[18px] opacity-40 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(236,72,153,0.15), rgba(59,130,246,0.15), rgba(168,85,247,0.15))", filter: "blur(8px)" }} />
 
-          <div
-            className="relative h-[700px] md:h-[750px] rounded-2xl overflow-hidden border border-white/15 flex flex-col z-10"
-            style={{
-              backgroundImage: "url('/macos-wallpaper.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              boxShadow: "0 40px 80px -10px rgba(0,0,0,0.7), 0 0 60px -15px rgba(168,85,247,0.15), 0 0 120px -30px rgba(59,130,246,0.1), 0 0 0 1px rgba(255,255,255,0.08)"
-            }}
-          >
+          {/* Outer padded container for the neon border */}
+          <div className="relative h-[700px] md:h-[750px] w-full rounded-[1.25rem] md:rounded-[1.5rem] border-[0.75px] border-white/10 p-1 md:p-2">
+            <GlowingEffect blur={0} borderWidth={2} spread={40} glow={true} disabled={false} inactiveZone={0.01} proximity={64} />
 
-            {/* macOS Top Menu Bar */}
-            <div className="h-[28px] w-full backdrop-blur-2xl bg-black/25 border-b border-white/10 flex flex-shrink-0 items-center justify-between px-4 z-[100] text-[13px] font-[500] text-white/90 select-none">
-              <div className="flex items-center gap-4">
-                <svg viewBox="0 0 384 512" width="12" height="12" fill="currentColor" className="opacity-90">
-                  <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
-                </svg>
-                <span className="font-semibold text-[13px] tracking-tight">Innoshay Solutions</span>
-                <div className="hidden md:flex items-center gap-[16px] text-[13px] opacity-90">
-                  {['File', 'Edit', 'Selection', 'View', 'Go', 'Run', 'Terminal', 'Window', 'Help'].map(item => (
-                    <span key={item} className="cursor-default hover:text-white transition-colors">{item}</span>
-                  ))}
+            {/* Inner Content (The Mac Screen itself) */}
+            <div
+              className="relative w-full h-full rounded-2xl overflow-hidden flex flex-col z-10"
+              style={{
+                backgroundImage: "url('/macos-wallpaper.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                boxShadow: "0 40px 80px -10px rgba(0,0,0,0.7), 0 0 60px -15px rgba(168,85,247,0.15), 0 0 120px -30px rgba(59,130,246,0.1), 0 0 0 1px rgba(255,255,255,0.08)"
+              }}
+            >
+
+              {/* macOS Top Menu Bar */}
+              <div className="h-[28px] w-full backdrop-blur-2xl bg-black/25 border-b border-white/10 flex flex-shrink-0 items-center justify-between px-4 z-[100] text-[13px] font-[500] text-white/90 select-none">
+                <div className="flex items-center gap-4">
+                  <svg viewBox="0 0 384 512" width="12" height="12" fill="currentColor" className="opacity-90">
+                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+                  </svg>
+                  <span className="font-semibold text-[13px] tracking-tight">Innoshay Solutions</span>
+                  <div className="hidden md:flex items-center gap-[16px] text-[13px] opacity-90">
+                    {['File', 'Edit', 'Selection', 'View', 'Go', 'Run', 'Terminal', 'Window', 'Help'].map(item => (
+                      <span key={item} className="cursor-default hover:text-white transition-colors">{item}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 text-[12px] opacity-85">
+                  <SlidersHorizontal className="w-3.5 h-3.5" />
+                  <Search className="w-3.5 h-3.5" />
+                  <Wifi className="w-[14px] h-[14px]" />
+                  <div className="flex items-center gap-1">
+                    <span className="text-[11px]">100%</span>
+                    <BatteryFull className="w-[15px] h-[15px]" />
+                  </div>
+                  <span>Tue Mar 3 7:16 AM</span>
                 </div>
               </div>
-              <div className="flex items-center gap-3 text-[12px] opacity-85">
-                <SlidersHorizontal className="w-3.5 h-3.5" />
-                <Search className="w-3.5 h-3.5" />
-                <Wifi className="w-[14px] h-[14px]" />
-                <div className="flex items-center gap-1">
-                  <span className="text-[11px]">100%</span>
-                  <BatteryFull className="w-[15px] h-[15px]" />
-                </div>
-                <span>Tue Mar 3 7:16 AM</span>
-              </div>
-            </div>
 
-            {/* Desktop Area (windows render here) */}
-            <div className="relative flex-grow">
-              <AnimatePresence>
-                {openApps.map((appId) => {
-                  const app = apps.find(a => a.id === appId)!;
-                  const isActive = activeApp === appId;
+              {/* Desktop Area (windows render here) */}
+              <div className="relative flex-grow">
+                <AnimatePresence>
+                  {openApps.map((appId) => {
+                    const app = apps.find(a => a.id === appId)!;
+                    const isActive = activeApp === appId;
+
+                    return (
+                      <motion.div
+                        key={appId}
+                        initial={{ opacity: 0, scale: 0.9, y: 40 }}
+                        animate={{
+                          opacity: isActive ? 1 : 0.5,
+                          scale: isActive ? 1 : 0.96,
+                          y: isActive ? 0 : 15,
+                          zIndex: isActive ? 50 : 10,
+                          filter: isActive ? 'blur(0px)' : 'blur(1.5px) brightness(75%)'
+                        }}
+                        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                        transition={{ type: "spring", stiffness: 350, damping: 30, mass: 0.5 }}
+                        className={`absolute top-[5%] left-1/2 -translate-x-1/2 w-[88%] lg:w-[78%] h-[82%] rounded-xl overflow-hidden flex flex-col bg-[#1e1e1e] ring-1 ring-black/30 ${isActive ? 'shadow-[0_25px_60px_rgba(0,0,0,0.5)]' : 'shadow-lg'}`}
+                        onClick={() => setActiveApp(appId)}
+                      >
+                        {/* Window Header */}
+                        <div className="h-11 flex-shrink-0 bg-[#2d2d2d] border-b border-[#1a1a1a] flex items-center px-4 gap-2 select-none">
+                          <div className="flex gap-2 group mr-3">
+                            <button onClick={(e) => handleClose(appId, e)} className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50 flex items-center justify-center">
+                              <X className="w-[7px] h-[7px] text-black/70 opacity-0 group-hover:opacity-100 transition-opacity" strokeWidth={3} />
+                            </button>
+                            <button className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50 flex items-center justify-center">
+                              <Minus className="w-[7px] h-[7px] text-black/70 opacity-0 group-hover:opacity-100 transition-opacity" strokeWidth={3} />
+                            </button>
+                            <button className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50 flex items-center justify-center">
+                              <Maximize2 className="w-[7px] h-[7px] text-black/60 opacity-0 group-hover:opacity-100 transition-opacity" strokeWidth={3} />
+                            </button>
+                          </div>
+                          <div className="flex-1 text-center text-[13px] text-[#a0a0a0] font-medium mr-[48px]">
+                            {app.title}
+                          </div>
+                        </div>
+
+                        {/* Window Content */}
+                        <div className="flex-grow overflow-hidden relative">
+                          {app.content}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
+              </div>
+
+              {/* macOS Dock */}
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-[100] px-3 py-2 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.4)] flex items-end gap-2">
+                {apps.map((app) => {
+                  const isOpen = openApps.includes(app.id);
 
                   return (
-                    <motion.div
-                      key={appId}
-                      initial={{ opacity: 0, scale: 0.9, y: 40 }}
-                      animate={{
-                        opacity: isActive ? 1 : 0.5,
-                        scale: isActive ? 1 : 0.96,
-                        y: isActive ? 0 : 15,
-                        zIndex: isActive ? 50 : 10,
-                        filter: isActive ? 'blur(0px)' : 'blur(1.5px) brightness(75%)'
-                      }}
-                      exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                      transition={{ type: "spring", stiffness: 350, damping: 30, mass: 0.5 }}
-                      className={`absolute top-[5%] left-1/2 -translate-x-1/2 w-[88%] lg:w-[78%] h-[82%] rounded-xl overflow-hidden flex flex-col bg-[#1e1e1e] ring-1 ring-black/30 ${isActive ? 'shadow-[0_25px_60px_rgba(0,0,0,0.5)]' : 'shadow-lg'}`}
-                      onClick={() => setActiveApp(appId)}
-                    >
-                      {/* Window Header */}
-                      <div className="h-11 flex-shrink-0 bg-[#2d2d2d] border-b border-[#1a1a1a] flex items-center px-4 gap-2 select-none">
-                        <div className="flex gap-2 group mr-3">
-                          <button onClick={(e) => handleClose(appId, e)} className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50 flex items-center justify-center">
-                            <X className="w-[7px] h-[7px] text-black/70 opacity-0 group-hover:opacity-100 transition-opacity" strokeWidth={3} />
-                          </button>
-                          <button className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50 flex items-center justify-center">
-                            <Minus className="w-[7px] h-[7px] text-black/70 opacity-0 group-hover:opacity-100 transition-opacity" strokeWidth={3} />
-                          </button>
-                          <button className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50 flex items-center justify-center">
-                            <Maximize2 className="w-[7px] h-[7px] text-black/60 opacity-0 group-hover:opacity-100 transition-opacity" strokeWidth={3} />
-                          </button>
-                        </div>
-                        <div className="flex-1 text-center text-[13px] text-[#a0a0a0] font-medium mr-[48px]">
-                          {app.title}
-                        </div>
+                    <div key={app.id} className="relative flex flex-col items-center group cursor-pointer" onClick={() => handleAppClick(app.id)}>
+                      {/* Tooltip */}
+                      <div className="absolute -top-10 px-3 py-1 bg-black/70 backdrop-blur-xl text-white text-[12px] font-medium rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                        {app.title.split(' - ')[0]}
                       </div>
 
-                      {/* Window Content */}
-                      <div className="flex-grow overflow-hidden relative">
-                        {app.content}
+                      {/* Icon */}
+                      <div
+                        className={`relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-200 ease-out origin-bottom ${app.color} shadow-lg ring-1 ring-white/20 group-hover:w-16 group-hover:h-16 group-hover:-translate-y-2`}
+                      >
+                        <app.icon className="w-6 h-6 text-white transition-all duration-200 group-hover:w-8 group-hover:h-8" />
+                        {/* Glass reflection */}
+                        <div className="absolute inset-x-0 top-0 h-1/2 rounded-t-xl bg-gradient-to-b from-white/35 to-transparent pointer-events-none" />
                       </div>
-                    </motion.div>
+
+                      {/* Active indicator */}
+                      <div className={`w-1 h-1 rounded-full bg-white/80 mt-1 transition-opacity ${isOpen ? 'opacity-100' : 'opacity-0'}`} />
+                    </div>
                   );
                 })}
-              </AnimatePresence>
+              </div>
             </div>
-
-            {/* macOS Dock */}
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-[100] px-3 py-2 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.4)] flex items-end gap-2">
-              {apps.map((app) => {
-                const isOpen = openApps.includes(app.id);
-
-                return (
-                  <div key={app.id} className="relative flex flex-col items-center group cursor-pointer" onClick={() => handleAppClick(app.id)}>
-                    {/* Tooltip */}
-                    <div className="absolute -top-10 px-3 py-1 bg-black/70 backdrop-blur-xl text-white text-[12px] font-medium rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                      {app.title.split(' - ')[0]}
-                    </div>
-
-                    {/* Icon */}
-                    <div
-                      className={`relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-200 ease-out origin-bottom ${app.color} shadow-lg ring-1 ring-white/20 group-hover:w-16 group-hover:h-16 group-hover:-translate-y-2`}
-                    >
-                      <app.icon className="w-6 h-6 text-white transition-all duration-200 group-hover:w-8 group-hover:h-8" />
-                      {/* Glass reflection */}
-                      <div className="absolute inset-x-0 top-0 h-1/2 rounded-t-xl bg-gradient-to-b from-white/35 to-transparent pointer-events-none" />
-                    </div>
-
-                    {/* Active indicator */}
-                    <div className={`w-1 h-1 rounded-full bg-white/80 mt-1 transition-opacity ${isOpen ? 'opacity-100' : 'opacity-0'}`} />
-                  </div>
-                );
-              })}
-            </div>
-
           </div>
         </div>
       </div>

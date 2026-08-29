@@ -228,7 +228,7 @@ def render_stats(user, total_data, current_data, longest_data, theme):
     c = THEMES[theme]
     W, H = 460, 150
     
-    ICON_FLAME = "M8.498 0C8.498 0 5 3.125 5 5.729c0 2.188 1.5 4.167 1.5 4.167s-1-1.563-1-3.125c0 0-3 1.563-3 4.688C2.5 15.104 5 16.667 8 16.667s5.5-1.563 5.5-5.208c0-3.125-3-4.688-3-4.688 0 1.563-1 3.125-1 3.125s1.5-1.562 1.5-4.167C11.5 3.125 8.498 0 8.498 0z"
+    ICON_FLAME = "M 1.5 0.67 C 1.5 0.67 2.24 3.32 2.24 5.47 C 2.24 7.53 0.89 9.2 -1.17 9.2 C -3.23 9.2 -4.79 7.53 -4.79 5.47 L -4.76 5.11 C -6.78 7.51 -8 10.62 -8 13.99 C -8 18.41 -4.42 22 0 22 C 4.42 22 8 18.41 8 13.99 C 8 8.6 5.41 3.79 1.5 0.67 Z M -0.29 19 C -2.07 19 -3.51 17.6 -3.51 15.86 C -3.51 14.24 -2.46 13.1 -0.7 12.74 C 1.07 12.38 2.9 11.53 3.92 10.16 C 4.31 11.45 4.51 12.81 4.51 14.2 C 4.51 16.85 2.36 19 -0.29 19 Z"
 
     # We do NOT use the frame() wrapper for the stats card anymore because we want it to 
     # seamlessly integrate into activity_gen.py without rendering its own <rect> background.
@@ -248,8 +248,17 @@ def render_stats(user, total_data, current_data, longest_data, theme):
 
     cx, cy = cols[1], 55
     r = 28
-    out.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{c["accent"]}" stroke-width="4"/>')
-    out.append(f'<path transform="translate({cx-12},{cy-r-16}) scale(1.5)" fill="{c["accent"]}" d="{ICON_FLAME}"/>')
+    flame_y = cy - r - 8
+    
+    out.append(f'<defs>')
+    out.append(f'<mask id="mask_fire">')
+    out.append(f'<path d="M0 0 h{W} v{H} h-{W} z" fill="white"/>')
+    out.append(f'<ellipse cx="{cx}" cy="{flame_y + 11}" rx="10" ry="14" fill="black"/>')
+    out.append(f'</mask>')
+    out.append(f'</defs>')
+    
+    out.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{c["accent"]}" stroke-width="4" mask="url(#mask_fire)"/>')
+    out.append(f'<path transform="translate({cx},{flame_y}) scale(0.9)" fill="{c["accent"]}" d="{ICON_FLAME}"/>')
     out.append(f'<text x="{cx}" y="{cy+11}" font-size="30" font-weight="bold" fill="{c["value"]}" text-anchor="middle">{current_data["count"]}</text>')
     out.append(f'<text x="{cx}" y="100" font-size="14" fill="{c["muted"]}" text-anchor="middle">Current Streak</text>')
     out.append(f'<text x="{cx}" y="125" font-size="12" fill="{c["muted"]}" text-anchor="middle">{current_data["date"]}</text>')

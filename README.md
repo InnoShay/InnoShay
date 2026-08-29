@@ -1,25 +1,23 @@
 <div align="center">
 
-<!-- PORTRAIT -->
-<img src="assets/portrait.svg" width="300" alt="Lakshay Sharma, rendered as a dot matrix">
+<!-- PORTRAIT / BANNER -->
+<img src="assets/banner.png" alt="Lakshay Sharma" width="100%">
 
 <br>
 
 <!-- NAME / TAGLINE -->
-<a href="https://github.com/InnoShay">
-  <img src="https://readme-typing-svg.demolab.com?font=Outfit&weight=800&size=32&duration=3000&pause=1000&color=E11D48&center=true&vCenter=true&width=800&lines=Lakshay+Sharma;Agentic+AI+%26+ML+Engineer;Founder+%40+InnoShay;Leader+%40+Appirates;Building+Intelligence" alt="typing banner">
-</a>
+<h1 align="center"><img src="https://readme-typing-svg.demolab.com?font=Outfit&weight=800&size=32&duration=3000&pause=1000&color=DD8A53&center=true&vCenter=true&width=800&lines=Lakshay+Sharma;Agentic+AI+%26+ML+Engineer;Founder+%40+InnoShay;Leader+%40+Appirates;Building+Intelligence" alt="typing banner"></h1>
 
 <br>
 
 <!-- SOCIALS -->
-<a href="https://www.linkedin.com/in/innoshay/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-<a href="mailto:luckyjournals@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
-<a href="https://www.instagram.com/lakshay.sharma___/"><img src="https://img.shields.io/badge/Personal_Insta-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Personal Instagram"></a>
-<a href="https://www.instagram.com/innoshaysolutions/"><img src="https://img.shields.io/badge/Work_Insta-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Work Instagram"></a>
-<a href="https://innoshay.com/"><img src="https://img.shields.io/badge/Website-111111?style=for-the-badge&logo=vercel&logoColor=white" alt="Website"></a>
+<a href="https://www.linkedin.com/in/innoshay/"><img src="https://img.shields.io/badge/LinkedIn-111827?style=for-the-badge&logo=linkedin&logoColor=DD8A53" alt="LinkedIn"></a>
+<a href="mailto:luckyjournals@gmail.com"><img src="https://img.shields.io/badge/Email-111827?style=for-the-badge&logo=gmail&logoColor=DD8A53" alt="Email"></a>
+<a href="https://www.instagram.com/lakshay.sharma___/"><img src="https://img.shields.io/badge/Personal_Insta-111827?style=for-the-badge&logo=instagram&logoColor=DD8A53" alt="Personal Instagram"></a>
+<a href="https://www.instagram.com/innoshaysolutions/"><img src="https://img.shields.io/badge/Work_Insta-111827?style=for-the-badge&logo=instagram&logoColor=DD8A53" alt="Work Instagram"></a>
+<a href="https://innoshay.com/"><img src="https://img.shields.io/badge/Website-111827?style=for-the-badge&logo=vercel&logoColor=DD8A53" alt="Website"></a>
 
-<img src="https://komarev.com/ghpvc/?username=InnoShay&style=flat&color=E11D48&label=profile+views" alt="profile views">
+<img src="https://komarev.com/ghpvc/?username=InnoShay&style=for-the-badge&color=DD8A53&labelColor=111827&label=profile+views" alt="profile views">
 
 </div>
 

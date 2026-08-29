@@ -2,7 +2,7 @@
   "title": "Language Mix",
   "axes": [
     { "label": "Python", "value": 98 },
-    { "label": "TypeScript", "value": 90 },
+    { "label": "TypeScript", "value": 65 },
     { "label": "JavaScript", "value": 75 },
     { "label": "C++", "value": 45 },
     { "label": "HTML5", "value": 35 },

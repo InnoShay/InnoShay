@@ -107,19 +107,7 @@ Hi, I'm **Lakshay Sharma**. I build intelligent systems that bridge the gap betw
 
 </div>
 
----
 
-<div align="center">
-
-## `~/` GitHub Streak
-
-<a href="https://github.com/InnoShay">
-  <img src="assets/streak.svg" alt="GitHub Streak">
-</a>
-
-</div>
-
----
 
 <div align="center">
 

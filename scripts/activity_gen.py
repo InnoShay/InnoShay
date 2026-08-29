@@ -55,12 +55,14 @@ def generate_activity_graph(user: str, out: Path):
     if not weeks:
         return
         
-    width = 800
-    height = 200
-    padding_x = 40
-    padding_y = 50
-    graph_w = width - (padding_x * 2)
-    graph_h = height - (padding_y * 1.5)
+    # Calculate side-by-side dimensions
+    width = 900
+    total_height = max(stats_h, 170)
+    
+    padding_x = 510
+    padding_y = 55
+    graph_w = width - padding_x - 30
+    graph_h = total_height - padding_y - 20
     
     max_val = max(weeks)
     if max_val == 0:
@@ -76,9 +78,6 @@ def generate_activity_graph(user: str, out: Path):
         
     # Create smooth cubic bezier curve
     path_d = f"M {points[0][0]} {points[0][1]}"
-    
-    # We will use simple line for now, but smooth curve is better
-    # A simple smoothing strategy: control points at x + distance/3
     for i in range(len(points) - 1):
         p0 = points[i]
         p1 = points[i+1]
@@ -87,24 +86,6 @@ def generate_activity_graph(user: str, out: Path):
         
     # Area path (closes the shape down to the baseline)
     area_d = path_d + f" L {points[-1][0]} {padding_y + graph_h} L {points[0][0]} {padding_y + graph_h} Z"
-    
-    # Try to load the stats card to combine them
-    stats_svg = ""
-    stats_h = 150
-    try:
-        stats_file = out / "card-stats-dark.svg"
-        if stats_file.exists():
-            content = stats_file.read_text(encoding="utf-8")
-            h_match = re.search(r'height="(\d+)"', content)
-            if h_match:
-                stats_h = int(h_match.group(1))
-            body_match = re.search(r'<rect[^>]+/>(.*)</svg>', content, flags=re.DOTALL)
-            if body_match:
-                stats_svg = body_match.group(1)
-    except Exception as e:
-        print(f"Failed to merge stats card: {e}")
-        
-    total_height = stats_h + height
     
     svg = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {total_height}" width="100%" height="{total_height}">',
@@ -120,20 +101,18 @@ def generate_activity_graph(user: str, out: Path):
         f'<rect x="0.5" y="0.5" width="{width-1}" height="{total_height-1}" rx="10" fill="{THEME["bg"]}" stroke="{THEME["border"]}"/>',
     ]
     
-    # Embed stats card horizontally centered
+    # Embed stats card horizontally on the left
     if stats_svg:
-        offset_x = (width - 480) / 2
-        svg.append(f'<g transform="translate({offset_x}, 0)">')
+        svg.append(f'<g transform="translate(10, 0)">')
         svg.append(stats_svg)
         svg.append('</g>')
         
-        # Add a subtle separator line between the two sections
-        svg.append(f'<line x1="22" y1="{stats_h}" x2="{width-22}" y2="{stats_h}" stroke="{THEME["border"]}" stroke-width="1" />')
+        # Add a subtle vertical separator line between the two sections
+        svg.append(f'<line x1="490" y1="20" x2="490" y2="{total_height - 20}" stroke="{THEME["border"]}" stroke-width="1" />')
 
-    # Add the activity graph in a translated group
-    svg.append(f'<g transform="translate(0, {stats_h})">')
-    svg.append(f'<text x="22" y="32" font-family="sans-serif" font-size="16" font-weight="bold" fill="{THEME["title"]}">Contribution Activity</text>')
-    svg.append(f'<text x="{width-22}" y="32" font-family="sans-serif" font-size="12" text-anchor="end" fill="{THEME["muted"]}">{sum(days)} contributions in the last year</text>')
+    # Add the activity graph on the right
+    svg.append(f'<text x="{padding_x}" y="30" font-family="sans-serif" font-size="15" font-weight="bold" fill="{THEME["title"]}">Contribution Activity</text>')
+    svg.append(f'<text x="{width-30}" y="30" font-family="sans-serif" font-size="11" text-anchor="end" fill="{THEME["muted"]}">{sum(days)} in the last year</text>')
     
     # The area fill
     svg.append(f'<path d="{area_d}" fill="url(#grad)" />')
@@ -143,13 +122,12 @@ def generate_activity_graph(user: str, out: Path):
     
     # Grid lines (optional, maybe just baseline)
     baseline_y = padding_y + graph_h
-    svg.append(f'<line x1="{padding_x}" y1="{baseline_y}" x2="{width - padding_x}" y2="{baseline_y}" stroke="{THEME["border"]}" stroke-dasharray="4" />')
+    svg.append(f'<line x1="{padding_x}" y1="{baseline_y}" x2="{width - 30}" y2="{baseline_y}" stroke="{THEME["border"]}" stroke-dasharray="4" />')
     
     # Min/Max labels
-    svg.append(f'<text x="{padding_x - 10}" y="{padding_y + 4}" font-family="sans-serif" font-size="10" text-anchor="end" fill="{THEME["muted"]}">{max_val}</text>')
-    svg.append(f'<text x="{padding_x - 10}" y="{baseline_y + 4}" font-family="sans-serif" font-size="10" text-anchor="end" fill="{THEME["muted"]}">0</text>')
+    svg.append(f'<text x="{padding_x - 10}" y="{padding_y + 4}" font-family="sans-serif" font-size="9" text-anchor="end" fill="{THEME["muted"]}">{max_val}</text>')
+    svg.append(f'<text x="{padding_x - 10}" y="{baseline_y + 4}" font-family="sans-serif" font-size="9" text-anchor="end" fill="{THEME["muted"]}">0</text>')
     
-    svg.append('</g>')
     svg.append('</svg>')
     
     out_file = out / "activity.svg"

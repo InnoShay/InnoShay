@@ -2,10 +2,10 @@
   "title": "Language Mix",
   "axes": [
     { "label": "Python", "value": 98 },
-    { "label": "TypeScript", "value": 85 },
-    { "label": "C++", "value": 75 },
-    { "label": "Go", "value": 60 },
-    { "label": "Shell", "value": 80 },
-    { "label": "JavaScript", "value": 55 }
+    { "label": "TypeScript", "value": 90 },
+    { "label": "JavaScript", "value": 75 },
+    { "label": "C++", "value": 45 },
+    { "label": "HTML5", "value": 35 },
+    { "label": "CSS3", "value": 30 }
   ]
 }

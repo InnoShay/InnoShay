@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" fill="none">
+  <defs>
+    <linearGradient id="conn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#58A6FF" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#58A6FF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#58A6FF" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Connection lines (behind nodes) -->
+  <g stroke="url(#conn)" stroke-width="1">
+    <!-- Core to AI -->
+    <line x1="400" y1="190" x2="200" y2="80"/>
+    <line x1="400" y1="190" x2="400" y2="60"/>
+    <line x1="400" y1="190" x2="600" y2="80"/>
+    <!-- Core to Backend -->
+    <line x1="400" y1="190" x2="150" y2="200"/>
+    <line x1="400" y1="190" x2="150" y2="260"/>
+    <!-- Core to Frontend -->
+    <line x1="400" y1="190" x2="650" y2="200"/>
+    <line x1="400" y1="190" x2="650" y2="260"/>
+    <!-- Core to Data -->
+    <line x1="400" y1="190" x2="250" y2="330"/>
+    <line x1="400" y1="190" x2="400" y2="340"/>
+    <!-- Core to Tools -->
+    <line x1="400" y1="190" x2="550" y2="330"/>
+    <!-- Inter-category connections -->
+    <line x1="200" y1="80" x2="400" y2="60" stroke-dasharray="3,3" opacity="0.5"/>
+    <line x1="400" y1="60" x2="600" y2="80" stroke-dasharray="3,3" opacity="0.5"/>
+    <line x1="150" y1="200" x2="150" y2="260" stroke-dasharray="3,3" opacity="0.5"/>
+    <line x1="650" y1="200" x2="650" y2="260" stroke-dasharray="3,3" opacity="0.5"/>
+    <line x1="250" y1="330" x2="400" y2="340" stroke-dasharray="3,3" opacity="0.5"/>
+    <line x1="400" y1="340" x2="550" y2="330" stroke-dasharray="3,3" opacity="0.5"/>
+  </g>
+
+  <!-- ============ CORE NODE ============ -->
+  <g transform="translate(400, 190)">
+    <circle r="28" fill="#161B22" stroke="#58A6FF" stroke-width="1.5"/>
+    <circle r="20" fill="none" stroke="#58A6FF" stroke-width="0.5" opacity="0.3">
+      <animate attributeName="r" values="20;32;20" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0;0.3" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <text y="4" text-anchor="middle" fill="#58A6FF" font-family="'SF Mono', monospace" font-size="9" font-weight="600">BUILD</text>
+  </g>
+
+  <!-- ============ AI / ML CLUSTER ============ -->
+  <!-- LLMs -->
+  <g transform="translate(200, 80)">
+    <rect x="-35" y="-14" width="70" height="28" rx="6" fill="#161B22" stroke="#A371F7" stroke-width="1"/>
+    <text y="4" text-anchor="middle" fill="#A371F7" font-family="'SF Mono', monospace" font-size="10">LLMs</text>
+  </g>
+  <!-- RAG -->
+  <g transform="translate(400, 60)">
+    <rect x="-35" y="-14" width="70" height="28" rx="6" fill="#161B22" stroke="#A371F7" stroke-width="1"/>
+    <text y="4" text-anchor="middle" fill="#A371F7" font-family="'SF Mono', monospace" font-size="10">RAG</text>
+  </g>
+  <!-- LangChain / Agentic -->
+  <g transform="translate(600, 80)">
+    <rect x="-42" y="-14" width="84" height="28" rx="6" fill="#161B22" stroke="#A371F7" stroke-width="1"/>
+    <text y="4" text-anchor="middle" fill="#A371F7" font-family="'SF Mono', monospace" font-size="10">LangChain</text>
+  </g>
+  <!-- Category label -->
+  <text x="400" y="28" text-anchor="middle" fill="#A371F7" font-family="'SF Mono', monospace" font-size="9" letter-spacing="2" opacity="0.5">AI · ML · NLP</text>
+
+  <!-- ============ BACKEND CLUSTER ============ -->
+  <!-- FastAPI -->
+  <g transform="translate(150, 200)">
+    <rect x="-38" y="-14" width="76" height="28" rx="6" fill="#161B22" stroke="#3FB950" stroke-width="1"/>
+    <text y="4" text-anchor="middle" fill="#3FB950" font-family="'SF Mono', monospace" font-size="10">FastAPI</text>
+  </g>
+  <!-- Python -->
+  <g transform="translate(150, 260)">
+    <rect x="-35" y="-14" width="70" height="28" rx="6" fill="#161B22" stroke="#3FB950" stroke-width="1"/>
+    <text y="4" text-anchor="middle" fill="#3FB950" font-family="'SF Mono', monospace" font-size="10">Python</text>
+  </g>
+  <!-- Category label -->
+  <text x="80" y="232" fill="#3FB950" font-family="'SF Mono', monospace" font-size="9" letter-spacing="2" opacity="0.5" transform="rotate(-90, 80, 232)">BACKEND</text>
+
+  <!-- ============ FRONTEND CLUSTER ============ -->
+  <!-- React -->
+  <g transform="translate(650, 200)">
+    <rect x="-35" y="-14" width="70" height="28" rx="6" fill="#161B22" stroke="#F0883E" stroke-width="1"/>
+    <text y="4" text-anchor="middle" fill="#F0883E" font-family="'SF Mono', monospace" font-size="10">React</text>
+  </g>
+  <!-- JavaScript -->
+  <g transform="translate(650, 260)">
+    <rect x="-45" y="-14" width="90" height="28" rx="6" fill="#161B22" stroke="#F0883E" stroke-width="1"/>
+    <text y="4" text-anchor="middle" fill="#F0883E" font-family="'SF Mono', monospace" font-size="10">JavaScript</text>
+  </g>
+  <!-- Category label -->
+  <text x="725" y="232" fill="#F0883E" font-family="'SF Mono', monospace" font-size="9" letter-spacing="2" opacity="0.5" transform="rotate(90, 725, 232)">FRONTEND</text>
+
+  <!-- ============ DATA CLUSTER ============ -->
+  <!-- PostgreSQL -->
+  <g transform="translate(250, 330)">
+    <rect x="-46" y="-14" width="92" height="28" rx="6" fill="#161B22" stroke="#58A6FF" stroke-width="1"/>
+    <text y="4" text-anchor="middle" fill="#58A6FF" font-family="'SF Mono', monospace" font-size="10">PostgreSQL</text>
+  </g>
+  <!-- Vector DB -->
+  <g transform="translate(400, 340)">
+    <rect x="-42" y="-14" width="84" height="28" rx="6" fill="#161B22" stroke="#58A6FF" stroke-width="1"/>
+    <text y="4" text-anchor="middle" fill="#58A6FF" font-family="'SF Mono', monospace" font-size="10">Vector DB</text>
+  </g>
+
+  <!-- ============ TOOLS CLUSTER ============ -->
+  <!-- DevOps/Tools -->
+  <g transform="translate(550, 330)">
+    <rect x="-50" y="-14" width="100" height="28" rx="6" fill="#161B22" stroke="#8B949E" stroke-width="1"/>
+    <text y="4" text-anchor="middle" fill="#8B949E" font-family="'SF Mono', monospace" font-size="10">Git · Linux</text>
+  </g>
+
+  <!-- Additional ML nodes (secondary) -->
+  <g transform="translate(280, 120)" opacity="0.7">
+    <rect x="-35" y="-12" width="70" height="24" rx="5" fill="#161B22" stroke="#A371F7" stroke-width="0.8"/>
+    <text y="3" text-anchor="middle" fill="#A371F7" font-family="'SF Mono', monospace" font-size="9">PyTorch</text>
+  </g>
+  <g transform="translate(520, 120)" opacity="0.7">
+    <rect x="-50" y="-12" width="100" height="24" rx="5" fill="#161B22" stroke="#A371F7" stroke-width="0.8"/>
+    <text y="3" text-anchor="middle" fill="#A371F7" font-family="'SF Mono', monospace" font-size="9">HuggingFace</text>
+  </g>
+  <g transform="translate(400, 120)" opacity="0.7">
+    <rect x="-48" y="-12" width="96" height="24" rx="5" fill="#161B22" stroke="#A371F7" stroke-width="0.8"/>
+    <text y="3" text-anchor="middle" fill="#A371F7" font-family="'SF Mono', monospace" font-size="9">Scikit-Learn</text>
+  </g>
+
+  <!-- Connection to secondary AI nodes -->
+  <g stroke="url(#conn)" stroke-width="0.8" stroke-dasharray="2,2">
+    <line x1="200" y1="80" x2="280" y2="120"/>
+    <line x1="400" y1="60" x2="400" y2="120"/>
+    <line x1="600" y1="80" x2="520" y2="120"/>
+    <line x1="280" y1="120" x2="400" y2="120"/>
+    <line x1="400" y1="120" x2="520" y2="120"/>
+  </g>
+</svg>

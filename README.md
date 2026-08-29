@@ -114,7 +114,7 @@ Hi, I'm **Lakshay Sharma**. I build intelligent systems that bridge the gap betw
 ## `~/` GitHub Streak
 
 <a href="https://github.com/InnoShay">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=InnoShay&theme=dark&hide_border=true&background=00000000&ring=DD8A53&fire=DD8A53&currStreakNum=ffffff&currStreakLabel=DD8A53&sideNums=ffffff&sideLabels=8b949e&dates=8b949e" alt="GitHub Streak">
+  <img src="assets/streak.svg" alt="GitHub Streak">
 </a>
 
 </div>

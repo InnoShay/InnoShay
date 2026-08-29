@@ -80,30 +80,19 @@ Hi, I'm **Lakshay Sharma**. I build intelligent systems that bridge the gap betw
 
 ## `~/` skill radar
 
-<table>
-<tr>
-<td width="50%" align="center" valign="middle">
-
 <!-- Self-rated radar -->
 <picture>
   <source media="(prefers-color-scheme: dark)"  srcset="assets/radar-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/radar-light.svg">
-  <img src="assets/radar-dark.svg" width="400" alt="skill radar chart">
+  <img src="assets/radar-dark.svg" width="350" alt="skill radar chart">
 </picture>
-
-</td>
-<td width="50%" align="center" valign="middle">
-
+&nbsp;&nbsp;&nbsp;&nbsp;
 <!-- Live radar built from real language byte counts -->
 <picture>
   <source media="(prefers-color-scheme: dark)"  srcset="assets/radar-langs-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/radar-langs-light.svg">
-  <img src="assets/radar-langs-dark.svg" width="400" alt="language radar chart">
+  <img src="assets/radar-langs-dark.svg" width="350" alt="language radar chart">
 </picture>
-
-</td>
-</tr>
-</table>
 
 </div>
 

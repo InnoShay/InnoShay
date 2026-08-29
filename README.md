@@ -148,11 +148,11 @@ Hi, I'm **Lakshay Sharma**. I build intelligent systems that bridge the gap betw
 <table>
 <tr>
 <td width="50%">
-  <a href="https://github.com/InnoShay/HireSight">
+  <a href="https://github.com/InnoShay/TLP">
     <picture>
-      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-HireSight-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="assets/card-HireSight-light.svg">
-      <img src="assets/card-HireSight-dark.svg" width="420" alt="HireSight">
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-TLP-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-TLP-light.svg">
+      <img src="assets/card-TLP-dark.svg" width="420" alt="TLP">
     </picture>
   </a>
 </td>
@@ -168,20 +168,20 @@ Hi, I'm **Lakshay Sharma**. I build intelligent systems that bridge the gap betw
 </tr>
 <tr>
 <td width="50%">
-  <a href="https://github.com/InnoShay/InnoFolio">
+  <a href="https://github.com/InnoShay/HireSight">
     <picture>
-      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-InnoFolio-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="assets/card-InnoFolio-light.svg">
-      <img src="assets/card-InnoFolio-dark.svg" width="420" alt="InnoFolio">
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-HireSight-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-HireSight-light.svg">
+      <img src="assets/card-HireSight-dark.svg" width="420" alt="HireSight">
     </picture>
   </a>
 </td>
 <td width="50%">
-  <a href="https://github.com/InnoShay/synapselearn">
+  <a href="https://github.com/InnoShay/InnoShay">
     <picture>
-      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-synapselearn-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="assets/card-synapselearn-light.svg">
-      <img src="assets/card-synapselearn-dark.svg" width="420" alt="synapselearn">
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-InnoShay-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-InnoShay-light.svg">
+      <img src="assets/card-InnoShay-dark.svg" width="420" alt="InnoShay">
     </picture>
   </a>
 </td>

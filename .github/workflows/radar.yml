@@ -45,12 +45,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
-          python scripts/radar.py \
-            --user InnoShay \
-            --skills assets/skills.json \
-            --languages assets/languages.json \
-            --theme dark \
-            --out assets
           python scripts/cards.py \
             --user InnoShay \
             --projects assets/projects.json \

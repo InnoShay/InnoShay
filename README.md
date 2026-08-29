@@ -1,174 +1,121 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
-  <img alt="Lakshay Sharma — AI Engineer building intelligent systems that ship to production" src="assets/hero-dark.svg" width="100%">
-</picture>
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/cover-dark.svg">
+    <img src="assets/cover-light.svg" alt="ME, IN CODE. A digital narrative by Lakshay Sharma." width="100%">
+  </picture>
+</div>
+
+<br><br>
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/ch-01-dark.svg">
+    <img src="assets/ch-01-light.svg" alt="Chapter 01: The Person" width="100%">
+  </picture>
+</div>
+
+I am Lakshay, a builder studying Computer Science simultaneously at **IIT Madras** and **SRM University**.
+
+But degrees are just metadata. 
+
+In reality, I spend my time trying to figure out how to bridge the gap between applied AI research and actual, usable software. I founded **InnoShay Solutions** to create a vehicle for that exact purpose: turning complex language models into products that solve real problems.
+
+<br><br>
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/ch-02-dark.svg">
+    <img src="assets/ch-02-light.svg" alt="Chapter 02: The Curiosity" width="100%">
+  </picture>
+</div>
+
+My curiosity usually pulls me toward **Agentic AI** and **Language Models**. 
+
+I am fascinated by systems that can reason, plan, and execute. Not just chatbots, but autonomous pipelines that can handle multi-step workflows.
+
+> "What happens when we stop using AI to just generate text, and start using it to orchestrate entire software lifecycles?"
+
+This question is the foundation of almost everything I've built over the last two years.
+
+<br><br>
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/ch-03-dark.svg">
+    <img src="assets/ch-03-light.svg" alt="Chapter 03: The Work" width="100%">
+  </picture>
+</div>
+
+I learn by building. Here are the systems that define my current engineering capabilities.
+
+### `01` GENESIS: The SDLC Automation Platform
+I noticed that a massive amount of engineering time is spent on planning, requirement analysis, and documentation. I wondered if agents could handle the boilerplate of software architecture.
+I architected GENESIS — a multi-agent platform using 5 specialized LLM workflows (via LangChain). It takes a natural language idea and outputs structured architecture blueprints, full technical documentation, and implementation guidance. It uses vector-search RAG to maintain context across the software lifecycle.
+
+### `02` HireSight: AI Recruitment Intelligence
+Unstructured resumes are a data extraction nightmare. I built a parsing pipeline that extracts semantic meaning from candidate profiles, then implemented NLP-based cosine similarity scoring to match them against job requisitions. It is currently deployed in production as a scalable FastAPI backend that handles concurrent evaluation workloads.
+
+### `03` Credify: AI Credibility & Verification
+Trust on the internet is deteriorating. I designed an explainable trust-scoring engine that combines NLP verification pipelines and modular data validation to assess information reliability. The core challenge wasn't just scoring, but *explainability* — surfacing why the model made a specific credibility decision.
+
+### `04` Human Scriber: Content Intelligence
+I fine-tuned BERT-family transformer models to analyze the tone, readability, and linguistic authenticity of content. It integrates 4 distinct NLP modules into a single unified API, replacing arbitrary human judgement with a 6-class deterministic scoring pipeline.
+
+<br><br>
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/ch-04-dark.svg">
+    <img src="assets/ch-04-light.svg" alt="Chapter 04: The Engineering" width="100%">
+  </picture>
+</div>
+
+Building these products forced me to develop a specific, repeatable engineering architecture. I avoid hype-driven stacks and stick to what can actually scale in production.
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/engineering-blueprint-dark.svg">
+    <img src="assets/engineering-blueprint-light.svg" alt="Engineering Blueprint" width="100%">
+  </picture>
+</div>
 
 <br>
 
-```
- 4 AI products architected. 2 deployed to production. 1 startup founded. Still an undergrad.
-```
+* **The Engine:** `Python`, `LangChain`, `PyTorch`, `HuggingFace`
+* **The Architecture:** `FastAPI` (Microservices), `PostgreSQL`, `Vector Databases`
+* **The Interface:** `React`, `JavaScript`
 
-I build AI-powered platforms — from multi-agent orchestration to production NLP systems — under **[InnoShay Solutions](https://innoshay.com)**, a company I founded to turn applied AI research into deployed software. Currently dual-enrolled at **IIT Madras** (BS, Computer Science) and **SRM University** (B.Tech, CS — 9.86 CGPA).
+<br><br>
 
-<br>
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/ch-05-dark.svg">
+    <img src="assets/ch-05-light.svg" alt="Chapter 05: The Rhythm" width="100%">
+  </picture>
+</div>
 
-<img src="assets/divider.svg" width="100%" alt="">
+Somewhere along the way, building stopped being occasional and became a rhythm. 
 
-## `// FEATURED SYSTEMS`
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### ▸ GENESIS
-**Multi-Agent SDLC Automation Platform**
-
-Architected a 5-module AI system that automates the entire software development lifecycle — from requirements analysis to architecture generation to implementation guidance.
-
-`Python` `FastAPI` `LangChain` `LLMs` `RAG` `Vector DB`
-
-**→** Natural language → structured engineering artifacts  
-**→** Agentic AI orchestration across 5 SDLC stages  
-**→** Modular FastAPI microservices with vector-search RAG
-
-<sub>Private repository — available on request</sub>
-
-</td>
-<td width="50%" valign="top">
-
-### ▸ HireSight
-**AI Recruitment Intelligence Platform** &nbsp; [![Live](https://img.shields.io/badge/LIVE-hiresight.innoshay.com-3FB950?style=flat-square)](https://hiresight.innoshay.com)
-
-Production-deployed platform that parses resumes, extracts structured data, and performs semantic candidate-job matching using NLP and ML ranking models.
-
-`Python` `FastAPI` `React` `NLP` `LLMs` `Scikit-Learn`
-
-**→** Resume parsing → structured skill extraction  
-**→** Cosine similarity + ML-based candidate ranking  
-**→** Recruiter analytics dashboards in production
-
-[`GitHub →`](https://github.com/InnoShay/HireSight)
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### ▸ Human Scriber
-**Transformer-Based Content Intelligence Engine**
-
-Fine-tuned BERT-family transformers for content analysis. Unified 4 NLP modules — tone detection, readability scoring, authenticity analysis, and writing enhancement — into a single multi-model API.
-
-`PyTorch` `Hugging Face` `NLP` `Scikit-Learn` `FastAPI`
-
-**→** Fine-tuned transformer models for humanization  
-**→** 6-class tone classification pipeline  
-**→** Multi-metric scoring across content types
-
-[`GitHub →`](https://github.com/InnoShay/backend_humanscriber)
-
-</td>
-<td width="50%" valign="top">
-
-### ▸ Credify
-**AI Credibility & Verification Platform** &nbsp; [![Live](https://img.shields.io/badge/LIVE-credify.innoshay.com-3FB950?style=flat-square)](https://credify.innoshay.com)
-
-Explainable trust-scoring engine combining NLP verification pipelines, credibility indicators, and modular data validation to automate multi-source reliability assessment.
-
-`Python` `FastAPI` `ML` `NLP` `React`
-
-**→** Explainable per-feature trust scoring  
-**→** NLP-driven multi-source verification  
-**→** Scalable production deployment
-
-[`GitHub →`](https://github.com/InnoShay/TLP)
-
-</td>
-</tr>
-</table>
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/building-rhythm-dark.svg">
+    <img src="assets/building-rhythm-light.svg" alt="Building Rhythm" width="100%">
+  </picture>
+</div>
 
 <br>
 
-<img src="assets/divider.svg" width="100%" alt="">
+That momentum translated into winning the **IBM Technovate (2026)** and the **Innowave Startup Challenge**, leading a community of 30+ developers at Appirates, and contributing to massive open-source ecosystems (GSSOC & SWOC).
 
-## `// TECHNOLOGY ECOSYSTEM`
+<br><br><br>
 
-<p align="center">
-  <img src="assets/tech-constellation.svg" width="700" alt="Technology constellation: AI/ML (LLMs, RAG, LangChain, PyTorch, HuggingFace, Scikit-Learn), Backend (FastAPI, Python), Frontend (React, JavaScript), Data (PostgreSQL, Vector DB), Tools (Git, Linux)">
-</p>
+### `06` THE DOOR
+I am currently scaling InnoShay and building the next iteration of agentic systems. If you are working on something technically difficult, or just want to talk about applied ML, let's connect.
 
-<details>
-<summary><code>→ expand full stack</code></summary>
+[**LinkedIn**](https://linkedin.com/in/lakshay-sharma-6a01492b4/)  ·  [**innoshay.com**](https://innoshay.com)  ·  `luckyjournals@gmail.com`
 
 <br>
 
-| Category | Technologies |
-|----------|-------------|
-| **Languages** | Python, JavaScript, SQL, C |
-| **AI / ML** | LLMs, RAG, LangChain, NLP, PyTorch, Hugging Face Transformers, Scikit-Learn, Agentic AI, Prompt Engineering |
-| **Backend** | FastAPI, REST APIs, API Design & Integration, Auth Systems |
-| **Frontend** | React.js, HTML5, CSS3 |
-| **Data** | PostgreSQL, MySQL, Vector Databases |
-| **Infrastructure** | Git, GitHub, Linux, Cloud Deployment, Postman |
-| **Core CS** | Data Structures & Algorithms, OOP, System Design, Agile |
-
-</details>
-
-<br>
-
-<img src="assets/divider.svg" width="100%" alt="">
-
-## `// BUILDING TIMELINE`
-
-```
-2024  ──────  IIT Madras (BS, CS) + SRM University (B.Tech, CS)
-              │
-              ├── First projects, experiments, foundations
-              │
-2025  ──────  Founded InnoShay Solutions
-              │
-              ├── GENESIS    → Multi-agent SDLC platform
-              ├── HireSight  → AI recruitment (→ production)
-              ├── Credify     → AI credibility scoring (→ production)
-              ├── Human Scriber → Transformer NLP engine
-              │
-              ├── Tech Head → Community Leader (30+ devs)
-              │
-2026  ──────  IBM Technovate Winner · Innowave Startup Winner
-              │
-              ├── IncodeVision — AI Engineering Intern
-              ├── GSSOC'26 Student Ambassador
-              ├── 10+ hackathons (AI, Cybersecurity, Entrepreneurship)
-              │
-     NOW ───  4 products shipped. 2 in production. Building next.
-```
-
-<br>
-
-<img src="assets/divider.svg" width="100%" alt="">
-
-## `// ACTIVITY`
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=InnoShay&theme=transparent&hide_border=true&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF&sideLabels=8B949E&sideNums=E6EDF3&dates=30363D&currStreakNum=E6EDF3" alt="GitHub Streak" width="490">
-</p>
-
-<br>
-
-<img src="assets/divider.svg" width="100%" alt="">
-
-## `// CONNECT`
-
-<p align="center">
-
-[`innoshay.com`](https://innoshay.com) &nbsp;&nbsp;·&nbsp;&nbsp; [`luckyjournals@gmail.com`](mailto:luckyjournals@gmail.com) &nbsp;&nbsp;·&nbsp;&nbsp; [`GitHub`](https://github.com/InnoShay)
-
-</p>
-
-<br>
-
-<p align="center">
-  <sub><code>LAKSHAY SHARMA // SYSTEMS ARCHITECT // 2026</code></sub>
-</p>
+<div align="center">
+  <sub>This profile was designed as a visual narrative. No generic templates were used.</sub>
+</div>

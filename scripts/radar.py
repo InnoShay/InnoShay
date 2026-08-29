@@ -124,7 +124,7 @@ def from_github(user: str, token: str | None, limit: int, exclude: set[str],
 
 
 FONT = "ui-sans-serif,-apple-system,Segoe UI,Helvetica,Arial,sans-serif"
-LBL, VAL, TTL = 13, 11, 15  # font sizes: axis label, axis value, title
+LBL, VAL, TTL = 17, 14, 20  # font sizes: axis label, axis value, title
 
 
 def ring(radius, n, start=-math.pi / 2):
@@ -147,7 +147,7 @@ def render(title, axes, theme: str, size: int, rings: int, show_values: bool,
     c = THEMES[theme]
     n = len(axes)
     r = size / 2 - 8
-    gap = 20  # how far the labels sit beyond the outer ring
+    gap = 26  # how far the labels sit beyond the outer ring
 
     vals = [max(0.0, min(100.0, v)) for _, v in axes]
     outer = ring(r, n)

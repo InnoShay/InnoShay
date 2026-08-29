@@ -1,0 +1,11 @@
+{
+  "title": "Language Mix",
+  "axes": [
+    { "label": "Python", "value": 95 },
+    { "label": "TypeScript", "value": 85 },
+    { "label": "JavaScript", "value": 80 },
+    { "label": "C++", "value": 75 },
+    { "label": "HTML5", "value": 70 },
+    { "label": "CSS3", "value": 65 }
+  ]
+}

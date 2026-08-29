@@ -134,11 +134,7 @@ Hi, I'm **Lakshay Sharma**. I build intelligent systems that bridge the gap betw
 
 <br>
 
-<img src="assets/metrics.languages.svg" height="165" alt="most used languages">
-
-<br><br>
-
-<img src="assets/metrics.achievements.svg" width="90%" alt="achievements">
+<img src="assets/activity.svg" width="100%" alt="Contribution Activity">
 
 </div>
 

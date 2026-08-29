@@ -55,7 +55,7 @@ jobs:
             --user InnoShay \
             --projects assets/projects.json \
             --out assets
-          python scripts/metrics_gen.py
+          python scripts/activity_gen.py
 
       - name: Fetch Streak Stats
         run: |
@@ -65,6 +65,6 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/radar-*.svg assets/card-*.svg assets/streak.svg assets/metrics.*.svg
+          git add assets/radar-*.svg assets/card-*.svg assets/streak.svg assets/activity.svg
           git diff --staged --quiet || git commit -m "chore: refresh charts and cards"
           git push

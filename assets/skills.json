@@ -1,0 +1,12 @@
+{
+  "title": "Skill Radar",
+  "_comment": "Self-rated skills for Lakshay Sharma. Values are 0-100.",
+  "axes": [
+    { "label": "Python", "value": 90 },
+    { "label": "Agentic AI", "value": 85 },
+    { "label": "FastAPI", "value": 80 },
+    { "label": "React / JS", "value": 75 },
+    { "label": "Vector DBs", "value": 80 },
+    { "label": "PyTorch", "value": 70 }
+  ]
+}

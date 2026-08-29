@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 120" fill="none">
-  <rect width="900" height="120" fill="#FAFAFA"/>
-  <line x1="60" y1="110" x2="840" y2="110" stroke="#E4E4E7" stroke-width="1"/>
-  <text x="60" y="80" fill="#18181B" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="48" font-weight="900" letter-spacing="-1">THE ENGINEERING</text>
-  <text x="60" y="30" fill="#D97706" font-family="'SF Mono', monospace" font-size="12" letter-spacing="2">CHAPTER 04</text>
-</svg>

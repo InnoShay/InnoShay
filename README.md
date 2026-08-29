@@ -1,121 +1,183 @@
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/cover-dark.svg">
-    <img src="assets/cover-light.svg" alt="ME, IN CODE. A digital narrative by Lakshay Sharma." width="100%">
-  </picture>
-</div>
 
-<br><br>
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/ch-01-dark.svg">
-    <img src="assets/ch-01-light.svg" alt="Chapter 01: The Person" width="100%">
-  </picture>
-</div>
-
-I am Lakshay, a builder studying Computer Science simultaneously at **IIT Madras** and **SRM University**.
-
-But degrees are just metadata. 
-
-In reality, I spend my time trying to figure out how to bridge the gap between applied AI research and actual, usable software. I founded **InnoShay Solutions** to create a vehicle for that exact purpose: turning complex language models into products that solve real problems.
-
-<br><br>
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/ch-02-dark.svg">
-    <img src="assets/ch-02-light.svg" alt="Chapter 02: The Curiosity" width="100%">
-  </picture>
-</div>
-
-My curiosity usually pulls me toward **Agentic AI** and **Language Models**. 
-
-I am fascinated by systems that can reason, plan, and execute. Not just chatbots, but autonomous pipelines that can handle multi-step workflows.
-
-> "What happens when we stop using AI to just generate text, and start using it to orchestrate entire software lifecycles?"
-
-This question is the foundation of almost everything I've built over the last two years.
-
-<br><br>
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/ch-03-dark.svg">
-    <img src="assets/ch-03-light.svg" alt="Chapter 03: The Work" width="100%">
-  </picture>
-</div>
-
-I learn by building. Here are the systems that define my current engineering capabilities.
-
-### `01` GENESIS: The SDLC Automation Platform
-I noticed that a massive amount of engineering time is spent on planning, requirement analysis, and documentation. I wondered if agents could handle the boilerplate of software architecture.
-I architected GENESIS — a multi-agent platform using 5 specialized LLM workflows (via LangChain). It takes a natural language idea and outputs structured architecture blueprints, full technical documentation, and implementation guidance. It uses vector-search RAG to maintain context across the software lifecycle.
-
-### `02` HireSight: AI Recruitment Intelligence
-Unstructured resumes are a data extraction nightmare. I built a parsing pipeline that extracts semantic meaning from candidate profiles, then implemented NLP-based cosine similarity scoring to match them against job requisitions. It is currently deployed in production as a scalable FastAPI backend that handles concurrent evaluation workloads.
-
-### `03` Credify: AI Credibility & Verification
-Trust on the internet is deteriorating. I designed an explainable trust-scoring engine that combines NLP verification pipelines and modular data validation to assess information reliability. The core challenge wasn't just scoring, but *explainability* — surfacing why the model made a specific credibility decision.
-
-### `04` Human Scriber: Content Intelligence
-I fine-tuned BERT-family transformer models to analyze the tone, readability, and linguistic authenticity of content. It integrates 4 distinct NLP modules into a single unified API, replacing arbitrary human judgement with a 6-class deterministic scoring pipeline.
-
-<br><br>
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/ch-04-dark.svg">
-    <img src="assets/ch-04-light.svg" alt="Chapter 04: The Engineering" width="100%">
-  </picture>
-</div>
-
-Building these products forced me to develop a specific, repeatable engineering architecture. I avoid hype-driven stacks and stick to what can actually scale in production.
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/engineering-blueprint-dark.svg">
-    <img src="assets/engineering-blueprint-light.svg" alt="Engineering Blueprint" width="100%">
-  </picture>
-</div>
+<!-- PORTRAIT -->
+<img src="assets/portrait.svg" width="300" alt="Lakshay Sharma, rendered as a dot matrix">
 
 <br>
 
-* **The Engine:** `Python`, `LangChain`, `PyTorch`, `HuggingFace`
-* **The Architecture:** `FastAPI` (Microservices), `PostgreSQL`, `Vector Databases`
-* **The Interface:** `React`, `JavaScript`
-
-<br><br>
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/ch-05-dark.svg">
-    <img src="assets/ch-05-light.svg" alt="Chapter 05: The Rhythm" width="100%">
-  </picture>
-</div>
-
-Somewhere along the way, building stopped being occasional and became a rhythm. 
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/building-rhythm-dark.svg">
-    <img src="assets/building-rhythm-light.svg" alt="Building Rhythm" width="100%">
-  </picture>
-</div>
+<!-- NAME / TAGLINE -->
+<a href="https://github.com/InnoShay">
+  <img src="https://readme-typing-svg.demolab.com?font=SF+Mono&weight=600&size=26&duration=2600&pause=900&color=D97706&center=true&vCenter=true&width=560&lines=Lakshay+Sharma;Agentic+AI+%26+ML+Engineer;Founder+@+InnoShay;Building+Intelligence" alt="typing banner">
+</a>
 
 <br>
 
-That momentum translated into winning the **IBM Technovate (2026)** and the **Innowave Startup Challenge**, leading a community of 30+ developers at Appirates, and contributing to massive open-source ecosystems (GSSOC & SWOC).
+<!-- SOCIALS -->
+<a href="https://linkedin.com/in/lakshay-sharma-6a01492b4/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+<a href="mailto:luckyjournals@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
+<a href="https://innoshay.com"><img src="https://img.shields.io/badge/Website-111111?style=for-the-badge&logo=vercel&logoColor=white" alt="Website"></a>
 
-<br><br><br>
+<img src="https://komarev.com/ghpvc/?username=InnoShay&style=flat&color=D97706&label=profile+views" alt="profile views">
 
-### `06` THE DOOR
-I am currently scaling InnoShay and building the next iteration of agentic systems. If you are working on something technically difficult, or just want to talk about applied ML, let's connect.
+</div>
 
-[**LinkedIn**](https://linkedin.com/in/lakshay-sharma-6a01492b4/)  ·  [**innoshay.com**](https://innoshay.com)  ·  `luckyjournals@gmail.com`
+---
+
+## `~/` whoami
+
+```console
+$ cat about.txt
+```
+
+Hi, I'm **Lakshay Sharma**. I build intelligent systems that bridge the gap between applied AI research and usable software. My work focuses heavily on agentic AI pipelines and scalable architectures.
+
+- Currently scaling **InnoShay** and building next-gen agentic systems
+- Studying **Computer Science** at **IIT Madras**
+- Always exploring new architectures for LLM-driven applications
+- Fun fact: **I started coding to automate the boring parts of my life, now I automate software lifecycles.**
 
 <br>
 
 <div align="center">
-  <sub>This profile was designed as a visual narrative. No generic templates were used.</sub>
+
+## `~/` toolbox
+
+<img src="https://skillicons.dev/icons?i=py,pytorch,fastapi,js,ts,react,postgres,docker,aws,linux,git,github,vscode,html,css&perline=10" alt="tech stack">
+
+</div>
+
+---
+
+<div align="center">
+
+## `~/` skill radar
+
+<table>
+<tr>
+<td width="50%" align="center" valign="middle">
+
+<!-- Self-rated radar -->
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="assets/radar-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/radar-light.svg">
+  <img src="assets/radar-dark.svg" width="400" alt="skill radar chart">
+</picture>
+
+</td>
+<td width="50%" align="center" valign="middle">
+
+<!-- Live radar built from real language byte counts -->
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="assets/radar-langs-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/radar-langs-light.svg">
+  <img src="assets/radar-langs-dark.svg" width="400" alt="language radar chart">
+</picture>
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
+
+## `~/` contribution calendar
+
+<!-- 3D isometric calendar -->
+<img src="assets/metrics.isocalendar.svg" width="90%" alt="3D isometric contribution calendar">
+
+<br><br>
+
+<!-- Snake -->
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/InnoShay/InnoShay/output/snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/InnoShay/InnoShay/output/snake.svg">
+  <img src="https://raw.githubusercontent.com/InnoShay/InnoShay/output/snake.svg" width="100%" alt="snake eating the contribution graph">
+</picture>
+
+</div>
+
+---
+
+<div align="center">
+
+## `~/` the numbers
+
+<!-- Stat cards -->
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="assets/card-stats-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/card-stats-light.svg">
+  <img src="assets/card-stats-dark.svg" width="480" alt="GitHub statistics">
+</picture>
+
+<br>
+
+<img src="assets/metrics.languages.svg" height="165" alt="most used languages">
+
+<br><br>
+
+<img src="assets/metrics.achievements.svg" width="90%" alt="achievements">
+
+</div>
+
+---
+
+<div align="center">
+
+## `~/` selected work
+
+<!-- Project Cards -->
+<table>
+<tr>
+<td width="50%">
+  <a href="https://github.com/InnoShay/HireSight">
+    <picture>
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-HireSight-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-HireSight-light.svg">
+      <img src="assets/card-HireSight-dark.svg" width="420" alt="HireSight">
+    </picture>
+  </a>
+</td>
+<td width="50%">
+  <a href="https://github.com/InnoShay/backend_humanscriber">
+    <picture>
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-backend_humanscriber-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-backend_humanscriber-light.svg">
+      <img src="assets/card-backend_humanscriber-dark.svg" width="420" alt="backend_humanscriber">
+    </picture>
+  </a>
+</td>
+</tr>
+<tr>
+<td width="50%">
+  <a href="https://github.com/InnoShay/InnoFolio">
+    <picture>
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-InnoFolio-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-InnoFolio-light.svg">
+      <img src="assets/card-InnoFolio-dark.svg" width="420" alt="InnoFolio">
+    </picture>
+  </a>
+</td>
+<td width="50%">
+  <a href="https://github.com/InnoShay/synapselearn">
+    <picture>
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-synapselearn-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-synapselearn-light.svg">
+      <img src="assets/card-synapselearn-dark.svg" width="420" alt="synapselearn">
+    </picture>
+  </a>
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
+
+<sub>`01110100 01101000 01100001 01101110 01101011 01110011 00100000 01100110 01101111 01110010 00100000 01110011 01100011 01110010 01101111 01101100 01101100 01101001 01101110 01100111`</sub>
+
 </div>

@@ -45,7 +45,34 @@ Hi, I'm **Lakshay Sharma**. I build intelligent systems that bridge the gap betw
 
 ## `~/` toolbox
 
-<img src="https://skillicons.dev/icons?i=py,pytorch,fastapi,js,ts,react,postgres,docker,aws,linux,git,github,vscode,html,css&perline=10" alt="tech stack">
+<br>
+
+<table align="center" style="border: none; background: transparent;">
+  <tr style="border: none; background: transparent;">
+    <td align="right" valign="middle" style="border: none; background: transparent;"><b>Languages —</b></td>
+    <td align="left" valign="middle" style="border: none; background: transparent;">
+      <img src="https://skillicons.dev/icons?i=py,ts,js,cpp,html,css" alt="Languages">
+    </td>
+  </tr>
+  <tr style="border: none; background: transparent;">
+    <td align="right" valign="middle" style="border: none; background: transparent;"><b>AI & ML —</b></td>
+    <td align="left" valign="middle" style="border: none; background: transparent;">
+      <img src="https://skillicons.dev/icons?i=pytorch,tensorflow,opencv,bash" alt="AI/ML">
+    </td>
+  </tr>
+  <tr style="border: none; background: transparent;">
+    <td align="right" valign="middle" style="border: none; background: transparent;"><b>Backend & Cloud —</b></td>
+    <td align="left" valign="middle" style="border: none; background: transparent;">
+      <img src="https://skillicons.dev/icons?i=fastapi,nodejs,postgres,mongodb,docker,aws" alt="Backend/Cloud">
+    </td>
+  </tr>
+  <tr style="border: none; background: transparent;">
+    <td align="right" valign="middle" style="border: none; background: transparent;"><b>Tools & OS —</b></td>
+    <td align="left" valign="middle" style="border: none; background: transparent;">
+      <img src="https://skillicons.dev/icons?i=vscode,git,github,linux,postman,figma" alt="Tools">
+    </td>
+  </tr>
+</table>
 
 </div>
 

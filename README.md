@@ -7,17 +7,19 @@
 
 <!-- NAME / TAGLINE -->
 <a href="https://github.com/InnoShay">
-  <img src="https://readme-typing-svg.demolab.com?font=SF+Mono&weight=600&size=26&duration=2600&pause=900&color=D97706&center=true&vCenter=true&width=560&lines=Lakshay+Sharma;Agentic+AI+%26+ML+Engineer;Founder+@+InnoShay;Building+Intelligence" alt="typing banner">
+  <img src="https://readme-typing-svg.demolab.com?font=Outfit&weight=800&size=32&duration=3000&pause=1000&color=E11D48&center=true&vCenter=true&width=800&lines=Lakshay+Sharma;Agentic+AI+%26+ML+Engineer;Founder+%40+InnoShay;Leader+%40+Appirates;Building+Intelligence" alt="typing banner">
 </a>
 
 <br>
 
 <!-- SOCIALS -->
-<a href="https://linkedin.com/in/lakshay-sharma-6a01492b4/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+<a href="https://www.linkedin.com/in/innoshay/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
 <a href="mailto:luckyjournals@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
-<a href="https://innoshay.com"><img src="https://img.shields.io/badge/Website-111111?style=for-the-badge&logo=vercel&logoColor=white" alt="Website"></a>
+<a href="https://www.instagram.com/lakshay.sharma___/"><img src="https://img.shields.io/badge/Personal_Insta-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Personal Instagram"></a>
+<a href="https://www.instagram.com/innoshaysolutions/"><img src="https://img.shields.io/badge/Work_Insta-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Work Instagram"></a>
+<a href="https://innoshay.com/"><img src="https://img.shields.io/badge/Website-111111?style=for-the-badge&logo=vercel&logoColor=white" alt="Website"></a>
 
-<img src="https://komarev.com/ghpvc/?username=InnoShay&style=flat&color=D97706&label=profile+views" alt="profile views">
+<img src="https://komarev.com/ghpvc/?username=InnoShay&style=flat&color=E11D48&label=profile+views" alt="profile views">
 
 </div>
 
@@ -32,6 +34,7 @@ $ cat about.txt
 Hi, I'm **Lakshay Sharma**. I build intelligent systems that bridge the gap between applied AI research and usable software. My work focuses heavily on agentic AI pipelines and scalable architectures.
 
 - Currently scaling **InnoShay** and building next-gen agentic systems
+- **Leader @ Appirates**, driving developer communities and open-source ecosystems
 - Studying **Computer Science** at **IIT Madras**
 - Always exploring new architectures for LLM-driven applications
 - Fun fact: **I started coding to automate the boring parts of my life, now I automate software lifecycles.**

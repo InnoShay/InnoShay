@@ -57,7 +57,7 @@ Hi, I'm **Lakshay Sharma**. I build intelligent systems that bridge the gap betw
   <tr style="border: none; background: transparent;">
     <td align="right" valign="middle" style="border: none; background: transparent;"><b>AI & ML —</b></td>
     <td align="left" valign="middle" style="border: none; background: transparent;">
-      <img src="https://skillicons.dev/icons?i=pytorch,tensorflow,opencv" alt="AI/ML"><img src="assets/skill-huggingface.svg" width="48" alt="HuggingFace"><img src="assets/skill-wandb.svg" width="48" alt="WandB"><img src="assets/skill-openai.svg" width="48" alt="OpenAI"><img src="assets/skill-gemini.svg" width="48" alt="Gemini"><img src="assets/skill-claude.svg" width="48" alt="Claude">
+      <img src="https://skillicons.dev/icons?i=pytorch,tensorflow,opencv" alt="AI/ML"> &nbsp; <img src="assets/skill-custom-ai.svg" alt="Custom AI ML Tools">
     </td>
   </tr>
   <tr style="border: none; background: transparent;">

@@ -55,9 +55,6 @@ LANG_COLOR = {
 
 FONT = "ui-sans-serif,-apple-system,Segoe UI,Helvetica,Arial,sans-serif"
 
-# Octicon outlines, drawn on a 16x16 grid. These are paths rather than the
-# characters U+2605 / U+2442 because those codepoints are missing from a lot of
-# system fonts and fall back to a tofu box.
 ICON_STAR = ("M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 "
              "2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 "
              "01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z")
@@ -77,11 +74,6 @@ def icon(path, x, y, size, fill):
     s = size / 16
     return (f'<path transform="translate({x:.1f},{y:.1f}) scale({s:.3f})" '
             f'fill="{fill}" d="{path}"/>')
-
-
-# --------------------------------------------------------------------------- #
-# api
-# --------------------------------------------------------------------------- #
 
 
 def rest(path: str, token: str | None):
@@ -116,7 +108,7 @@ query($login:String!){
 
 
 def fetch_contributions(user: str, token: str | None):
-    """Return (total, current_streak, longest_streak) or None without a token."""
+    """Return (total_data, current_data, longest_data) dictionaries or None."""
     if not token:
         return None
     try:
@@ -135,24 +127,59 @@ def fetch_contributions(user: str, token: str | None):
     days.sort()
 
     longest = run = 0
-    for _, c in days:
-        run = run + 1 if c > 0 else 0
-        longest = max(longest, run)
+    longest_end = None
+    for date, c in days:
+        if c > 0:
+            run += 1
+            if run > longest:
+                longest = run
+                longest_end = date
+        else:
+            run = 0
 
-    # Today counts only if it already has activity; an empty today does not
-    # break a streak that was alive yesterday.
     current = 0
+    current_end = None
     for date, c in reversed(days):
         if c > 0:
+            if current_end is None:
+                current_end = date
             current += 1
         elif date != days[-1][0]:
             break
-    return cal["totalContributions"], current, longest
+            
+    # Format the dates
+    def fmt_date(d1, d2):
+        if not d1 or not d2:
+            return ""
+        today = days[-1][0]
+        if d2 == today:
+            return f"{d1.strftime('%b')} {d1.day}, {d1.year} - Present"
+        if d1.year == d2.year:
+            return f"{d1.strftime('%b')} {d1.day} - {d2.strftime('%b')} {d2.day}"
+        return f"{d1.strftime('%b')} {d1.day}, {d1.year} - {d2.strftime('%b')} {d2.day}, {d2.year}"
 
-
-# --------------------------------------------------------------------------- #
-# svg helpers
-# --------------------------------------------------------------------------- #
+    total_data = {
+        "count": cal["totalContributions"], 
+        "date": fmt_date(days[0][0], days[-1][0]) if days else ""
+    }
+    
+    if longest > 0:
+        longest_start = longest_end - dt.timedelta(days=longest-1)
+        longest_date = fmt_date(longest_start, longest_end)
+    else:
+        longest_date = ""
+        
+    longest_data = {"count": longest, "date": longest_date}
+    
+    if current > 0:
+        current_start = current_end - dt.timedelta(days=current-1)
+        current_date = fmt_date(current_start, current_end)
+    else:
+        current_date = ""
+        
+    current_data = {"count": current, "date": current_date}
+        
+    return total_data, current_data, longest_data
 
 
 def esc(s: str) -> str:
@@ -178,7 +205,6 @@ def wrap(text: str, size: float, max_w: float, max_lines: int) -> list[str]:
     if cur and len(lines) < max_lines:
         lines.append(cur)
     if len(lines) == max_lines and words:
-        # did everything fit?
         used = len(" ".join(lines).split())
         if used < len(words):
             while lines and text_width(lines[-1] + "…", size) > max_w:
@@ -198,45 +224,42 @@ def frame(w, h, c, body, label):
     )
 
 
-# --------------------------------------------------------------------------- #
-# cards
-# --------------------------------------------------------------------------- #
-
-
-def render_stats(user, stats, theme):
+def render_stats(user, total_data, current_data, longest_data, theme):
     c = THEMES[theme]
-    pad = 22
-    tiles = [(v, k) for k, v in stats]
-    cols = 3
-    rows = (len(tiles) + cols - 1) // cols
-    # Height follows the tile count, so the card does not leave a dead band when
-    # the contribution tiles are unavailable. Measured off the last row's label
-    # baseline rather than a nominal row height.
-    rh, W = 46, 480
-    H = pad + 52 + (rows - 1) * rh + 17 + pad
-    tw = (W - 2 * pad) / cols
+    W, H = 460, 150
+    
+    ICON_FLAME = "M8.498 0C8.498 0 5 3.125 5 5.729c0 2.188 1.5 4.167 1.5 4.167s-1-1.563-1-3.125c0 0-3 1.563-3 4.688C2.5 15.104 5 16.667 8 16.667s5.5-1.563 5.5-5.208c0-3.125-3-4.688-3-4.688 0 1.563-1 3.125-1 3.125s1.5-1.562 1.5-4.167C11.5 3.125 8.498 0 8.498 0z"
 
+    # We do NOT use the frame() wrapper for the stats card anymore because we want it to 
+    # seamlessly integrate into activity_gen.py without rendering its own <rect> background.
+    # Actually, activity_gen.py extracts everything inside the <svg> BUT strips out the <rect>
+    # using regex! So we can just return a standard SVG here, and activity_gen will parse it.
+    
     out = [
-        f'<text x="{pad}" y="{pad + 14}" font-size="15" font-weight="700" '
-        f'fill="{c["title"]}">{esc(user)}</text>',
-        f'<text x="{W - pad}" y="{pad + 14}" font-size="11" text-anchor="end" '
-        f'fill="{c["muted"]}">at a glance</text>',
-        f'<line x1="{pad}" y1="{pad + 26}" x2="{W - pad}" y2="{pad + 26}" '
-        f'stroke="{c["border"]}"/>',
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="{FONT}">',
+        f'<rect width="{W}" height="{H}" fill="none"/>'
     ]
-    top = pad + 52
-    for i, (value, label) in enumerate(tiles):
-        cx = pad + (i % cols) * tw
-        cy = top + (i // cols) * rh
-        out.append(
-            f'<text x="{cx:.0f}" y="{cy:.0f}" font-size="23" font-weight="700" '
-            f'fill="{c["value"]}">{esc(value)}</text>'
-        )
-        out.append(
-            f'<text x="{cx:.0f}" y="{cy + 17:.0f}" font-size="10.5" '
-            f'fill="{c["muted"]}">{esc(label)}</text>'
-        )
-    return frame(W, H, c, "".join(out), f"{user} GitHub statistics")
+    
+    cols = [76, 230, 384]
+    
+    out.append(f'<text x="{cols[0]}" y="65" font-size="34" font-weight="bold" fill="{c["value"]}" text-anchor="middle">{total_data["count"]}</text>')
+    out.append(f'<text x="{cols[0]}" y="100" font-size="14" fill="{c["muted"]}" text-anchor="middle">Total Contributions</text>')
+    out.append(f'<text x="{cols[0]}" y="125" font-size="12" fill="{c["muted"]}" text-anchor="middle">{total_data["date"]}</text>')
+
+    cx, cy = cols[1], 55
+    r = 28
+    out.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{c["accent"]}" stroke-width="4"/>')
+    out.append(f'<path transform="translate({cx-12},{cy-r-16}) scale(1.5)" fill="{c["accent"]}" d="{ICON_FLAME}"/>')
+    out.append(f'<text x="{cx}" y="{cy+11}" font-size="30" font-weight="bold" fill="{c["value"]}" text-anchor="middle">{current_data["count"]}</text>')
+    out.append(f'<text x="{cx}" y="100" font-size="14" fill="{c["muted"]}" text-anchor="middle">Current Streak</text>')
+    out.append(f'<text x="{cx}" y="125" font-size="12" fill="{c["muted"]}" text-anchor="middle">{current_data["date"]}</text>')
+
+    out.append(f'<text x="{cols[2]}" y="65" font-size="34" font-weight="bold" fill="{c["value"]}" text-anchor="middle">{longest_data["count"]}</text>')
+    out.append(f'<text x="{cols[2]}" y="100" font-size="14" fill="{c["muted"]}" text-anchor="middle">Longest Streak</text>')
+    out.append(f'<text x="{cols[2]}" y="125" font-size="12" fill="{c["muted"]}" text-anchor="middle">{longest_data["date"]}</text>')
+
+    out.append('</svg>')
+    return "".join(out)
 
 
 def render_repo(repo, theme):
@@ -281,9 +304,6 @@ def render_repo(repo, theme):
     return frame(W, H, c, "".join(out), f'{repo["name"]} repository card')
 
 
-# --------------------------------------------------------------------------- #
-
-
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -305,26 +325,16 @@ def main(argv=None):
         if len(batch) < 100:
             break
         page += 1
-    owned = [r for r in repos if not r["fork"]]
-    stars = sum(r["stargazers_count"] for r in owned)
-
-    tiles = [("Total stars", f"{stars:,}"),
-             ("Public repos", f"{user['public_repos']:,}"),
-             ("Followers", f"{user['followers']:,}")]
-
+    
     contrib = fetch_contributions(args.user, token)
     if contrib:
-        total, current, longest = contrib
-        tiles += [("Contributions (1y)", f"{total:,}"),
-                  ("Current streak", f"{current:,}"),
-                  ("Longest streak", f"{longest:,}")]
+        total_data, current_data, longest_data = contrib
+        for theme in ("dark", "light"):
+            dest = args.out / f"card-stats-{theme}.svg"
+            dest.write_text(render_stats(args.user, total_data, current_data, longest_data, theme), encoding="utf-8")
+        print("wrote card-stats-*.svg")
     else:
         print("  note: no usable token, skipping contribution tiles", file=sys.stderr)
-
-    for theme in ("dark", "light"):
-        dest = args.out / f"card-stats-{theme}.svg"
-        dest.write_text(render_stats(args.user, tiles, theme), encoding="utf-8")
-    print(f"wrote card-stats-*.svg  ({len(tiles)} tiles)")
 
     if not args.projects.exists():
         print(f"no {args.projects}, skipping repo cards")

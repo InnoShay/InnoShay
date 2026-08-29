@@ -111,19 +111,11 @@ Hi, I'm **Lakshay Sharma**. I build intelligent systems that bridge the gap betw
 
 <div align="center">
 
-## `~/` contribution calendar
+## `~/` GitHub Streak
 
-<!-- 3D isometric calendar -->
-<img src="assets/metrics.isocalendar.svg" width="90%" alt="3D isometric contribution calendar">
-
-<br><br>
-
-<!-- Snake -->
-<picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/InnoShay/InnoShay/output/snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/InnoShay/InnoShay/output/snake.svg">
-  <img src="https://raw.githubusercontent.com/InnoShay/InnoShay/output/snake.svg" width="100%" alt="snake eating the contribution graph">
-</picture>
+<a href="https://github.com/InnoShay">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=InnoShay&theme=dark&hide_border=true&background=00000000&ring=DD8A53&fire=DD8A53&currStreakNum=ffffff&currStreakLabel=DD8A53&sideNums=ffffff&sideLabels=8b949e&dates=8b949e" alt="GitHub Streak">
+</a>
 
 </div>
 

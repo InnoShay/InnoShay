@@ -55,6 +55,22 @@ def generate_activity_graph(user: str, out: Path):
     if not weeks:
         return
         
+    # Try to load the stats card to combine them
+    stats_svg = ""
+    stats_h = 160
+    try:
+        stats_file = out / "card-stats-dark.svg"
+        if stats_file.exists():
+            content = stats_file.read_text(encoding="utf-8")
+            h_match = re.search(r'height="(\d+)"', content)
+            if h_match:
+                stats_h = int(h_match.group(1))
+            body_match = re.search(r'<rect[^>]+/>(.*)</svg>', content, flags=re.DOTALL)
+            if body_match:
+                stats_svg = body_match.group(1)
+    except Exception as e:
+        print(f"Failed to merge stats card: {e}")
+        
     # Calculate side-by-side dimensions
     width = 900
     total_height = max(stats_h, 170)
